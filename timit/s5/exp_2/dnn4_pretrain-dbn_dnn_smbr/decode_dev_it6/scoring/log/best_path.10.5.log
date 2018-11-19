@@ -1,0 +1,34 @@
+# lattice-align-phones exp_2/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it6/../final.mdl "ark:gunzip -c exp_2/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it6/lat.5.gz|" ark:- | lattice-to-ctm-conf --acoustic-scale=.10000000 --lm-scale=1.0 ark:- exp_2/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it6/scoring/10.5.ctm 
+# Started at Fri Jun 22 19:21:43 CST 2018
+#
+lattice-align-phones exp_2/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it6/../final.mdl 'ark:gunzip -c exp_2/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it6/lat.5.gz|' ark:- 
+lattice-to-ctm-conf --acoustic-scale=.10000000 --lm-scale=1.0 ark:- exp_2/dnn4_pretrain-dbn_dnn_smbr/decode_dev_it6/scoring/10.5.ctm 
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjmg0_si1181, Bayes Risk 11.297, avg. confidence per-word 0.865819
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjmg0_si1811, Bayes Risk 6.30322, avg. confidence per-word 0.873552
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjmg0_si551, Bayes Risk 6.65396, avg. confidence per-word 0.86174
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjmg0_sx101, Bayes Risk 11.4581, avg. confidence per-word 0.831674
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjmg0_sx11, Bayes Risk 3.74706, avg. confidence per-word 0.817829
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjmg0_sx191, Bayes Risk 6.95213, avg. confidence per-word 0.832952
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjmg0_sx281, Bayes Risk 5.5523, avg. confidence per-word 0.892956
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjmg0_sx371, Bayes Risk 5.21821, avg. confidence per-word 0.929369
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjsj0_si1484, Bayes Risk 2.50506, avg. confidence per-word 0.943654
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjsj0_si2114, Bayes Risk 3.93791, avg. confidence per-word 0.894164
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjsj0_si854, Bayes Risk 7.19487, avg. confidence per-word 0.858621
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjsj0_sx134, Bayes Risk 8.6094, avg. confidence per-word 0.856042
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjsj0_sx224, Bayes Risk 3.68938, avg. confidence per-word 0.861283
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjsj0_sx314, Bayes Risk 8.69828, avg. confidence per-word 0.849515
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjsj0_sx404, Bayes Risk 3.25455, avg. confidence per-word 0.943246
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fjsj0_sx44, Bayes Risk 6.14234, avg. confidence per-word 0.85169
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fkms0_si1490, Bayes Risk 5.76732, avg. confidence per-word 0.890532
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fkms0_si2120, Bayes Risk 7.53756, avg. confidence per-word 0.8582
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fkms0_si860, Bayes Risk 8.41968, avg. confidence per-word 0.863447
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fkms0_sx140, Bayes Risk 7.26247, avg. confidence per-word 0.865611
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fkms0_sx230, Bayes Risk 5.01011, avg. confidence per-word 0.911441
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fkms0_sx320, Bayes Risk 5.2792, avg. confidence per-word 0.906272
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fkms0_sx410, Bayes Risk 4.43743, avg. confidence per-word 0.880286
+LOG (lattice-align-phones[5.4.140~1-1ab3d]:main():lattice-align-phones.cc:104) Successfully aligned 24 lattices; 0 had errors.
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:172) For utterance fkms0_sx50, Bayes Risk 8.56176, avg. confidence per-word 0.848145
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:181) Done 24 lattices.
+LOG (lattice-to-ctm-conf[5.4.140~1-1ab3d]:main():lattice-to-ctm-conf.cc:182) Overall average Bayes Risk per sentence is 6.39539 and per word, 0.179941
+# Accounting: time=1 threads=1
+# Ended (code 0) at Fri Jun 22 19:21:44 CST 2018, elapsed time 1 seconds

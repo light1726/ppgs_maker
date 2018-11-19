@@ -1,0 +1,551 @@
+# latgen-faster-mapped --beam=18.0 --lattice-beam=10.0 --acoustic-scale=0.2 --max-mem=20000000 --max-active=5000 --word-symbol-table=data/lang/words.txt exp_2/dnn4_pretrain-dbn_dnn/final.mdl exp_2/dnn4_pretrain-dbn_dnn_denlats/dengraph/HCLG.fst "ark,s,cs:copy-feats scp:data-deltas-tri1/train/split20/16/feats.scp ark:- | nnet-forward --no-softmax=true --prior-scale=1.0 --feature-transform=exp_2/dnn4_pretrain-dbn_dnn/final.feature_transform --class-frame-counts=exp_2/dnn4_pretrain-dbn_dnn/ali_train_pdf.counts --use-gpu=no exp_2/dnn4_pretrain-dbn_dnn/final.nnet ark:- ark:- |" scp:exp_2/dnn4_pretrain-dbn_dnn_denlats/lat.store_separately_as_gz.scp 
+# Started at Fri Jun 22 18:32:10 CST 2018
+#
+latgen-faster-mapped --beam=18.0 --lattice-beam=10.0 --acoustic-scale=0.2 --max-mem=20000000 --max-active=5000 --word-symbol-table=data/lang/words.txt exp_2/dnn4_pretrain-dbn_dnn/final.mdl exp_2/dnn4_pretrain-dbn_dnn_denlats/dengraph/HCLG.fst 'ark,s,cs:copy-feats scp:data-deltas-tri1/train/split20/16/feats.scp ark:- | nnet-forward --no-softmax=true --prior-scale=1.0 --feature-transform=exp_2/dnn4_pretrain-dbn_dnn/final.feature_transform --class-frame-counts=exp_2/dnn4_pretrain-dbn_dnn/ali_train_pdf.counts --use-gpu=no exp_2/dnn4_pretrain-dbn_dnn/final.nnet ark:- ark:- |' scp:exp_2/dnn4_pretrain-dbn_dnn_denlats/lat.store_separately_as_gz.scp 
+copy-feats scp:data-deltas-tri1/train/split20/16/feats.scp ark:- 
+nnet-forward --no-softmax=true --prior-scale=1.0 --feature-transform=exp_2/dnn4_pretrain-dbn_dnn/final.feature_transform --class-frame-counts=exp_2/dnn4_pretrain-dbn_dnn/ali_train_pdf.counts --use-gpu=no exp_2/dnn4_pretrain-dbn_dnn/final.nnet ark:- ark:- 
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuId():cu-device.cc:123) Manually selected to compute on CPU.
+LOG (nnet-forward[5.4.140~1-1ab3d]:main():nnet-forward.cc:93) Removing <Softmax> from the nnet exp_2/dnn4_pretrain-dbn_dnn/final.nnet
+LOG (nnet-forward[5.4.140~1-1ab3d]:PdfPrior():nnet-pdf-prior.cc:34) Computing pdf-priors from : exp_2/dnn4_pretrain-dbn_dnn/ali_train_pdf.counts
+LOG (nnet-forward[5.4.140~1-1ab3d]:PdfPrior():nnet-pdf-prior.cc:64) Floored 0 pdf-priors (hard-set to 1.84467e+19, which disables DNN output when decoding)
+mprb0_si1205 sil b ax w iy aa r cl g oy ng cl t l uh cl ch ix vcl g y v hh ix m ih n iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprb0_si1205 is 3.39157 over 461 frames.
+mprb0_si1215 sil dh ih s ch uw cl dh ih cl dh m ao r el l ao ix z n ae cl ch ih l hh ae z ah dh er ix n cl p ao r en cl k ao r l r iy z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprb0_si1215 is 3.62628 over 1031 frames.
+mprb0_si575 sil hh iy vcl d eh z ax w ah n hh er cl t l ix cl f r aw n ng iy ae cl hh ih m ao r s cl p iy cl sil sil t iy hh ih m hh ae ng er l iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (13001472,383392,6663528), after rebuilding, repo size was 9483584, effective beam was 9.65721 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mprb0_si575
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprb0_si575 is 3.49424 over 981 frames.
+mprb0_sx125 sil w ah s cl ch eh s er ih z iy cl k hh aw n iy n y ao r cl k sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprb0_sx125 is 3.73559 over 547 frames.
+mprb0_sx215 sil dh s er uw ix n eh n f ix s ay z dh ix n iy f ao r ax f er m ix cl t ih v ae cl sh ix n sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (13474816,245248,6341880), after rebuilding, repo size was 10445216, effective beam was 8.51804 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mprb0_sx215
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprb0_sx215 is 3.75422 over 785 frames.
+mprb0_sx305 sil k ay iy jh cl ch iy z w ix th sil ch ay v z ix z cl d l ih sh ix s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprb0_sx305 is 3.78338 over 664 frames.
+mprb0_sx35 sil hh ow cl p s eh l ax b r ey y vcl b r ow dh er s ix cl k s eh s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprb0_sx35 is 3.75221 over 546 frames.
+mprb0_sx395 sil ay cl t ix cl k r w er vcl f ao r ih cl sil p ix vcl d iy sh y r l iy vcl g oy ng w ih th y uw sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprb0_sx395 is 3.59171 over 639 frames.
+mprd0_si1431 sil dh vcl b ae cl t ih r iy ix f ao r m d ix cl t ix cl p ax cl k el ae cl t ih v ey ih vcl s l ah vcl jh f l cl k cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprd0_si1431 is 3.73028 over 772 frames.
+mprd0_si2061 sil m ey vcl b iy s ax m ah dh vcl d ey sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprd0_si2061 is 3.74675 over 356 frames.
+mprd0_si801 sil sil ih n ih m uw hh aw s vcl jh eh n er s r v ow v er hh ae ng z er l aa jh ix cl k el ax f eh cl ax v s l uw sh ix m sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprd0_si801 is 3.628 over 1099 frames.
+mprd0_sx171 sil dh vcl d ay vcl n ow s ix s epi ax z d ix s cl t er jh ix n hh aw r v er sil hh iy w z aa dx ow v l iy w er iy vcl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprd0_sx171 is 3.70109 over 897 frames.
+mprd0_sx261 sil d y uw hh ae v dh iy y l ow oy cl m ix r eh dx iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprd0_sx261 is 3.6457 over 496 frames.
+mprd0_sx351 sil dh ix m uw s ax vcl b er v ah n ay cl s epi w er cl t hh aa r dx ao m ix f er r sh ng dh eh r l dx er hh ow m sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprd0_sx351 is 3.64177 over 734 frames.
+mprd0_sx441 sil d ow l uh cl f er cl g r uw cl v ae y vcl b el z ax n ax vcl b ay vcl f ao l cl t sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprd0_sx441 is 3.6188 over 568 frames.
+mprd0_sx81 sil ix cl t s ix m p aa s vcl b el t ix vcl d iy w th cl p y er aa cl k er s iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprd0_sx81 is 3.63156 over 509 frames.
+mprk0_si1097 sil hh ih s cl t ao cl t er n s cl t uw w dx iy cl k ao l z dh m eh s sil ao r s ah m cl t ay m z ix z b ah z ng cl k en f y uw zh ix m d sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprk0_si1097 is 3.87727 over 1200 frames.
+mprk0_si1727 sil ch eh cl k dh iy ow v er n ay dx er z aw cl t sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprk0_si1727 is 3.76405 over 532 frames.
+mprk0_si467 sil hh iy r l iy cl k r s ax f ay vcl d hh ih m hh iy n ey l vcl d ih cl f ao r ey y r vcl l ao s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprk0_si467 is 3.80701 over 840 frames.
+mprk0_sx107 sil b er cl dh ey cl p ao r dx iy z hh ae cl k ah cl k ey cl k s ih n ay s cl k r iy m sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprk0_sx107 is 3.72678 over 602 frames.
+mprk0_sx17 sil k aa r l ih v z ix n ey l ay v l iy hh ow m sil sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprk0_sx17 is 3.74643 over 651 frames.
+mprk0_sx197 vcl d r ao iy cl ch cl g r ae f ah n ey ng uw ae cl k s ix s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprk0_sx197 is 3.64302 over 519 frames.
+mprk0_sx287 sil ih n dh l ao ng r ah n sil ih cl p ey z cl t uw vcl b ay cl k ao l cl t iy cl k ow dh ix ng sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprk0_sx287 is 3.70043 over 817 frames.
+mprk0_sx377 sil sh iy l w ix z vcl jh ow cl k s ax vcl b ah cl t uw m ah vcl ch vcl g ao r l iy cl k ih n ix z f uw vcl d sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprk0_sx377 is 3.81345 over 683 frames.
+mprt0_si1210 sil hh ix z w iy vcl s er vcl m ao r l ao ay f ih z cl k l ao dh ey ih cl p ih er z vcl b iy ng ix n eh v ax vcl b el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprt0_si1210 is 3.7325 over 783 frames.
+mprt0_si495 sil dh ey y dh er w ao cl t w er vcl d r v ax n sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprt0_si495 is 3.67025 over 344 frames.
+mprt0_si580 sil t uw aa f ah n ax l eh s iy hh eh l z dh eh m dh ey cl p ae s ix m b ay sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprt0_si580 is 3.93665 over 556 frames.
+mprt0_sx130 sil hh iy ey f ao r eh cl t er ae vcl s f er b r eh cl f ax s cl t sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprt0_sx130 is 3.51516 over 431 frames.
+mprt0_sx220 sil dh ax m ow s r iy s ih n jh ih l aa jh cl k el s er v ey f aw s ay z epi m cl k eh cl t ix v ix d iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprt0_sx220 is 3.74846 over 665 frames.
+mprt0_sx310 sil dh ah hh uh dx dh ix vcl jh iy cl p w ax s t iy m iy ng ix n ax hh aa cl s ay n sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprt0_sx310 is 3.69147 over 467 frames.
+mprt0_sx40 sil s cl t ih m iy l eh dx ng d ix s cl k ah sh en z k iy cl s cl t uw dx ix n s ax cl t ix n ch en sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprt0_sx40 is 3.69289 over 574 frames.
+mprt0_sx400 sil jh ah s cl t r aa n ow dx ix s ix z ix iy s ix vcl jh ah sh en b aa cl z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mprt0_sx400 is 3.66981 over 478 frames.
+mpsw0_si1067 sil dh er vcl g ey ix z en cl p aa s epi el ax cl k en dh ey n w er vcl s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mpsw0_si1067 is 3.65256 over 465 frames.
+mpsw0_si1697 sil w dx v b dx iy z iy d eh vcl d eh ix f ay z ow cl p iy m ay cl s ow dx er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12055328,374304,7612512), after rebuilding, repo size was 8560352, effective beam was 9.82409 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mpsw0_si1697
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mpsw0_si1697 is 3.61115 over 483 frames.
+mpsw0_si2327 sil m s aa ay v dx ae sh ow hh ae cl d s er ch ix z hh aw s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mpsw0_si2327 is 3.66269 over 413 frames.
+mpsw0_sx167 sil p oy iy l ey aw s cl k ow n s ay dx w th ix cl k ah vcl p iy z r ow ix n ix z ey sh en sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12590944,401664,7020024), after rebuilding, repo size was 8819296, effective beam was 9.20686 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mpsw0_sx167
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mpsw0_sx167 is 3.56253 over 577 frames.
+mpsw0_sx24 sil ax dh aa aw z ax l ow n ng s ix v ay f sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mpsw0_sx24 is 3.599 over 368 frames.
+mpsw0_sx257 sil iy aa ow cl p ix n eh v iy m ah n iy n ix sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mpsw0_sx257 is 3.80871 over 403 frames.
+mpsw0_sx437 sil ey uw z t ix n g r eh s ix v cl p l iy s ix n cl t ix f l ay th aa l ax s epi m ow dx er s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mpsw0_sx437 is 3.61965 over 610 frames.
+mpsw0_sx77 sil b ae cl p ay s ix n b ao ng ow z ix m y z ix cl k w ix sh m ix cl s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mpsw0_sx77 is 3.5568 over 491 frames.
+mrab0_si1224 sil dh ix s ih z n eh v dh l eh s ax m ay n ao r dx iy v iy uw sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab0_si1224 is 3.75758 over 484 frames.
+mrab0_si1854 sil hh y er m er m vcl b ax l ay s cl t ah m hh iy dx iy en sil ae cl sh uw l ey vcl z f m n ae cl sh el cl p ae en sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab0_si1854 is 3.57281 over 856 frames.
+mrab0_si594 sil dh cl t ay l b el uw n z aa r f l ow cl t sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab0_si594 is 3.62626 over 406 frames.
+mrab0_sx144 sil dh w l iy w m n w ao r m ah s cl k r ae cl k ow cl t sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab0_sx144 is 3.69927 over 504 frames.
+mrab0_sx234 sil dh cl p ey cl p er vcl b oy vcl b ao cl t uw ae cl b el s ix n th r iy ay s ix s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab0_sx234 is 3.63208 over 550 frames.
+mrab0_sx324 sil b l uh cl k el vcl d r ah s cl t er w ix s cl ch aa r zh t ix th ih l iy vcl el iy vcl d s cl p eh n s ng t r n cl k el ay z er z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab0_sx324 is 3.48633 over 776 frames.
+mrab0_sx414 sil ay r sh y ah n s cl jh er z iy cl t f r sh cl k ix cl p er sh f er b r cl k f ix s cl t sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab0_sx414 is 3.69423 over 630 frames.
+mrab0_sx54 sil dh iy s cl t er n cl k ow s ix z ax cl p l ey s f er cl p y er cl p l ih zh er n ix cl k s ay m n cl t sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab0_sx54 is 3.57849 over 620 frames.
+mrab1_si1478 sil hh iy vcl d ih vcl n aa m ay n y uw s epi l s cl k ay n l iy cl k oy sh ch ix n s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab1_si1478 is 3.79114 over 598 frames.
+mrab1_si2108 sil d ah l f er vcl g eh cl k w ih s cl k iy sil ix s ah cl ch ix vcl b ih vcl g s eh l er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab1_si2108 is 3.73499 over 534 frames.
+mrab1_si848 sil k ih n y er ih n sh er ix n s cl k ah m cl p ix n iy ey vcl d y uw ix n er vcl d uw s ix ng ix vcl m eh n ix s cl t r dx ix cl k ao s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab1_si848 is 3.70281 over 819 frames.
+mrab1_sx128 sil l aa cl s ax f ao r m uw v iy z hh eh v s ah vcl t aa dx el s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab1_sx128 is 3.78537 over 505 frames.
+mrab1_sx218 sil t r ay dx er r iy cl k ao l dh iy v ah cl s en cl k aa l ao vcl jh cl k el ao er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab1_sx218 is 3.66338 over 600 frames.
+mrab1_sx308 sil sh ih cl sil dh ih l dh ix ng ix z ax m ow s f ae s ix n ey ng cl p r ao s eh s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab1_sx308 is 3.80805 over 636 frames.
+mrab1_sx38 sil y ah ng cl p iy cl p el cl p er cl t ih s ax cl p ey dx ix n ae th p ah dx ix cl k ae cl t ih v ix dx iy s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab1_sx38 is 3.71145 over 605 frames.
+mrab1_sx398 sil ch ih l d er n cl k en cl k ix n s uw m ix n iy f r uw cl k ae n iy z ix n m w n s ih dx ih ng sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrab1_sx398 is 3.77725 over 624 frames.
+mrai0_si1954 sil hh ah n iy hh iy w ih s cl p er d sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrai0_si1954 is 3.77859 over 296 frames.
+mrai0_si2052 sil dh iy n t aa er l ih cl t ix dh s cl ch r iy cl k ix vcl b y r ey cl epi w ix th r ay f el f ay er f ax m dh ix s vcl b aa r n sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrai0_si2052 is 3.65718 over 890 frames.
+mrai0_si792 sil b ah f eh n s cl t er ah n f eh n s cl sil n ow cl p l s ay dx ix z dh ax cl p ey z f er r ah n ix ng er hh ao r s cl p el ix sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrai0_si792 is 3.6795 over 976 frames.
+mrai0_sx162 sil hh er ao v er n hh eh r m ay n ix vcl d hh ih m ax v ao dx ax m l iy uw s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrai0_sx162 is 3.65654 over 624 frames.
+mrai0_sx252 sil dh ix vcl k ao r vcl jh ix s cl p ah dx er f ay ey dx l aa v n eh cl t er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrai0_sx252 is 3.63978 over 502 frames.
+mrai0_sx342 sil t ey cl ch aa r jh ix v cl ch uw z ix ng hh er vcl p r ay z m ey uw vcl t s cl g aw ow n z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrai0_sx342 is 3.66155 over 662 frames.
+mrai0_sx432 sil k aa f iy z cl g r ow n ah n s cl t iy cl p cl ch ah ng el w ay cl k s l ow cl s ix n t eh m cl p er cl z uw n z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrai0_sx432 is 3.69727 over 874 frames.
+mrai0_sx72 sil s cl p r ih ng sh cl t r iy ix sh r ey dx eh hh eh vcl d sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrai0_sx72 is 3.61889 over 442 frames.
+mram0_si1275 sil p l aa cl k ey vcl ix z w ah n ae n s er cl ao f er vcl b ay eh cl s cl p er cl s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mram0_si1275 is 3.75033 over 629 frames.
+mram0_si1905 sil m ey n w ay l s cl p r ih ng ix vcl p ae s epi w l ih n t s ah m er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mram0_si1905 is 3.72668 over 486 frames.
+mram0_si1951 sil iy w ah n t ix vcl d sh uh dh cl t aw n sil w dx hh ae cl p ix n d eh n uw oy n hh ix cl t r ay cl t ix s cl b er cl f r l b el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mram0_si1951 is 3.61732 over 861 frames.
+mram0_sx105 sil y m ah s ix cl s cl p l ih s l iy vcl d ax l iy cl d f ay l s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mram0_sx105 is 3.81164 over 482 frames.
+mram0_sx15 sil dh m y z iy m ay er z epi uw z ih sh ix n z sil eh v r iy v n ix ng sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mram0_sx15 is 3.90348 over 639 frames.
+mram0_sx195 sil w vcl y uw l aw ae cl k s ax v ay l n cl t s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mram0_sx195 is 3.88311 over 395 frames.
+mram0_sx285 sil r ih cl ch cl p er jh ix s s eh v r el s ay n l ih th ix vcl g r ae f s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mram0_sx285 is 3.80577 over 568 frames.
+mram0_sx375 sil g r ow ng w l cl k eh cl g ao r vcl en s ix z v eh r iy cl t ay m cl k n s ix m ix sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mram0_sx375 is 3.7045 over 632 frames.
+mrav0_si1008 sil ch ih s epi n ah cl s ax er s cl t er cl ch iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrav0_si1008 is 3.72433 over 355 frames.
+mrav0_si1638 sil w ah cl p z ah s ch y vcl d cl t ao m ix ey cl k l ow z hh ao r z epi w vcl b iy ix vcl g ix dx ah vcl d iy ah sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrav0_si1638 is 3.5268 over 652 frames.
+mrav0_si2268 sil n iy d l ax s cl t ix s ey m aa aa r cl s ah f er vcl d r eh s ix cl k w iy vcl d er ix n ix s cl t er r ix en cl p er ix vcl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrav0_si2268 is 3.63138 over 760 frames.
+mrav0_sx108 sil hh ih s cl k eh l p w z vcl b ax s er vcl f ax m cl t ix d ey z hh aa s ah n sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrav0_sx108 is 3.43489 over 509 frames.
+mrav0_sx18 sil ae l m ow n iy hh aa m z ix vcl d v ao r s epi m ae n z w l th sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrav0_sx18 is 3.41406 over 451 frames.
+mrav0_sx198 sil n ow w iy vcl jh n s epi w dx er zh er m ey dx v l ae m z w el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrav0_sx198 is 3.75288 over 449 frames.
+mrav0_sx288 sil b r ah sh f aa r z er cl k aa m n ix n dh vcl d r ay n vcl b r ow sh v n v aa ax sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrav0_sx288 is 3.72845 over 559 frames.
+mrav0_sx378 sil ah vcl jh ih s ao vcl jh ih n er dh iy n uw r k ix l jh cl k m ix z iy ix m 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrav0_sx378 is 3.50459 over 548 frames.
+mrbc0_si1665 sil ih f uw ix sh dh ao cl k ey m ix n cl t uw hh ix z hh eh vcl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrbc0_si1665 is 3.48397 over 484 frames.
+mrbc0_si1859 sil w er cl f ao r cl k iy cl dh vcl b oy s eh dx iy y er l iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrbc0_si1859 is 3.86637 over 529 frames.
+mrbc0_si599 sil w dx ix cl s cl p l ey n z ih s y n ih vcl d r eh cl sh el cl p r ae l s ix s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrbc0_si599 is 3.63036 over 589 frames.
+mrbc0_sx149 sil ow w dx ng f er cl ch ih cl p er sh iy cl k r ih s cl k r ao s ax s cl w er m ih n iy cl t ay sil s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrbc0_sx149 is 3.65388 over 680 frames.
+mrbc0_sx239 sil p y r iy s ix n f r uw vcl b ax f ao r cl p er cl p eh r ng ix s cl y uw er s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrbc0_sx239 is 3.7135 over 593 frames.
+mrbc0_sx329 sil ch ih cl p ow s cl p ow n aw ow ow n ix cl p ey m ix n s dh n cl t ih dh ax l ey ix s cl p ao s vcl b el vcl d ey cl t sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrbc0_sx329 is 3.54259 over 744 frames.
+mrbc0_sx419 sil dh ix f uh vcl b ao cl t iy n cl k ow cl ch hh eh z iy w aa cl s th ih n eh z ix vcl d ay n sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrbc0_sx419 is 3.67374 over 623 frames.
+mrbc0_sx59 sil dh ix s ih ng er z f ih ng er hh ae dx ix s cl p l eh n er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrbc0_sx59 is 3.60845 over 408 frames.
+mrcg0_si1428 sil ih n eh cl k s w er vcl z eh n l eh cl t aa ax cl s epi w cl ch uw z m ey vcl y r z l er v d ix m ax f aa l w ng w ey iy z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcg0_si1428 is 3.71819 over 959 frames.
+mrcg0_si2058 sil w ay ey cl jh ix cl p oy ih m b ao l sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcg0_si2058 is 3.64675 over 528 frames.
+mrcg0_si798 sil w ix n y er l eh s f ix cl t iy vcl t f ih ng jh ix s n ae cl ch r l l uh cl b r ay dx er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcg0_si798 is 3.74668 over 748 frames.
+mrcg0_sx168 sil uw cl t ow cl f ix cl k ay y ae cl d aw n ax vcl b ay y uw sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcg0_sx168 is 3.72483 over 524 frames.
+mrcg0_sx258 sil iy eh s ey ah n d ih n ay vcl b l iy r f l eh cl k s aa r v y uw ey vcl b l ix sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcg0_sx258 is 3.77858 over 714 frames.
+mrcg0_sx348 sil ah l v ah s cl k uw cl p ax v ae dx eh vcl z aa dx eh cl p er cl p el ix n cl t er cl k oy sh er b er cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcg0_sx348 is 3.87095 over 811 frames.
+mrcg0_sx438 sil sh eh l sh aa cl k ao z b ay sh r ae cl n ah l ix s ah m cl t ay m jh cl ch r er vcl th er vcl r cl p th eh er cl p iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcg0_sx438 is 3.80418 over 916 frames.
+mrcg0_sx78 sil d aa cl t er z cl p er s cl k r ay vcl d r ao vcl s cl t uw f r l iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcg0_sx78 is 3.8247 over 689 frames.
+mrcw0_si1371 sil ch y uw z dh iy z n uw w ey z n d iy l ey l ey f z dh l eh s cl d aw sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcw0_si1371 is 3.69108 over 611 frames.
+mrcw0_si2001 sil r l aa s cl t ax n vcl b er n ng ah cl p l r ix vcl iy sil sh iy vcl b eh dx aw cl sil t eh n s el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcw0_si2001 is 3.58741 over 612 frames.
+mrcw0_si741 sil ih n ax w ih n cl t er sil hh ax vcl b ay cl ch iy n ix cl k ix cl ch ix n ao r vcl g r l v dh l aa vcl s ax v ax f oy er cl p oy s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcw0_si741 is 3.62106 over 861 frames.
+mrcw0_sx111 sil hh ix s ah m d ix cl p aa r cl ch er sh aa cl dh ix cl k ey ah s cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcw0_sx111 is 3.66111 over 437 frames.
+mrcw0_sx201 sil ax cl p r ow cl ch er ih m er v iy w s cl t eh cl ch uw eh s cl k m cl p ow zh er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcw0_sx201 is 3.67949 over 547 frames.
+mrcw0_sx21 sil eh l f eh l f l eh ix s ah l f iy f er ix sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12818848,432448,6802848), after rebuilding, repo size was 9387584, effective beam was 9.47451 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrcw0_sx21
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcw0_sx21 is 3.47912 over 337 frames.
+mrcw0_sx291 sil dh iy eh v l eh n sh cl t r ih vcl er dx ax m ay n er f cl k w ey cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12796768,322240,6901800), after rebuilding, repo size was 9691680, effective beam was 8.97331 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrcw0_sx291
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcw0_sx291 is 3.59875 over 476 frames.
+mrcw0_sx381 sil y w l cl k m eh n iy dx uw s cl t uw vcl n s iy cl ch ih er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrcw0_sx381 is 3.66535 over 437 frames.
+mrdd0_si1050 sil b ow th ix cl k ix n d ih sh ix n z ix n ix cl k m p ih s ix dx iy aa vcl d aa cl k m eh n ih ix n cl k ix n s er el vcl d iy cl t ey el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (13154560,289664,6576744), after rebuilding, repo size was 9270912, effective beam was 8.03284 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrdd0_si1050
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdd0_si1050 is 3.55472 over 785 frames.
+mrdd0_si1680 sil hh cl ch eh cl t ih n cl t uw ow m ow cl t eh l n d r ow dh aw n cl t aw sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdd0_si1680 is 3.75294 over 575 frames.
+mrdd0_si2310 sil ix n aw n ao r sil sil d ow n ch uw n cl k eh r sh ix m sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdd0_si2310 is 3.69654 over 495 frames.
+mrdd0_sx150 sil hh ih dh ix m iy s cl k ix s iy n ix z ix cl k s cl k w z ix cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdd0_sx150 is 3.59993 over 400 frames.
+mrdd0_sx240 sil ix cl s epi aa dx iy z iy cl t cl k r ey dx eh l m ix n ey iy ey vcl g z ae m cl p el s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdd0_sx240 is 3.64553 over 550 frames.
+mrdd0_sx277 sil dh ax r ow s cl k ao r s aa r vcl jh s m aa l cl s epi w iy cl t sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdd0_sx277 is 3.73623 over 449 frames.
+mrdd0_sx330 sil k aa n cl dh ix n ah m b er v cl t iy s cl p uw n z ah v s ow iy s ao s dh eh cl ch uw ae vcl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdd0_sx330 is 3.80669 over 627 frames.
+mrdd0_sx60 sil dh ax l ah vcl jh sh l ey cl ch er m eh cl t ix vcl jh ah vcl jh th ix s dh ey dx v cl p ah v uh cl k eh vcl jh ix cl k ey sh en sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdd0_sx60 is 3.58941 over 661 frames.
+mrdm0_si1044 sil r eh z ix dh ih sh ah s ow sh ey sh ix n sh cl t r vcl el cl t ix ix n s b ay dh m s aw dh ix vcl ix n z f ix n cl t r uw zh en sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12891840,380384,6760584), after rebuilding, repo size was 9035840, effective beam was 8.88106 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrdm0_si1044
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdm0_si1044 is 3.36823 over 835 frames.
+mrdm0_si1595 sil aa cl k r uw vcl l ae dx er r ae n d aw n ow w dx en f l ao r sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdm0_si1595 is 3.55212 over 499 frames.
+mrdm0_si965 sil ax s ih n aa m iy ih z n eh ax s ih ng ax w ih v cl p ax s er ix z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdm0_si965 is 3.46611 over 545 frames.
+mrdm0_sx155 sil dh w aa er cl k n cl t ey n cl t m ix cl ch k aa r iy vcl d sil en s cl t ah ng ix z ay f sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12613248,314080,7121544), after rebuilding, repo size was 9453792, effective beam was 8.98019 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrdm0_sx155
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdm0_sx155 is 3.46288 over 664 frames.
+mrdm0_sx245 sil d ix z hh eh n d uw ay vcl iy aa vcl jh iy aa er cl k hh aw z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdm0_sx245 is 3.67043 over 500 frames.
+mrdm0_sx335 sil k ah s ao cl p ay n cl t r iy z ih n r vcl w ix vcl s sil ax n ix z w ao cl f r uw s ix cl k oy ix n er sh cl el f ao r s cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdm0_sx335 is 3.46599 over 899 frames.
+mrdm0_sx425 sil m uw v iy z epi n eh v er hh ae v ix n ah f v ax en z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdm0_sx425 is 3.52072 over 365 frames.
+mrdm0_sx65 sil ch ae l n jh iy cl ch vcl jh ix er el z ix n t eh l vcl jh en s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrdm0_sx65 is 3.62201 over 412 frames.
+mrds0_si1167 sil w iy eh vcl d ah dh ng d hh ay dx ah n r vcl b uh sh el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrds0_si1167 is 3.52186 over 364 frames.
+mrds0_si1797 sil k m ah n iy l ih s cl er vcl f ao r ah el z vcl b aw th r iy f iy vcl d ae aw s ah vcl d ow cl f ao l sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrds0_si1797 is 3.5656 over 650 frames.
+mrds0_si537 sil ix dx ih z w ax dh ax r r cl p ah l vcl g v ih n ch er z iy er ax n w ix cl ch n ih l iy r iy w n z ix vcl g r iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (13346176,268384,6426792), after rebuilding, repo size was 10586496, effective beam was 7.48486 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrds0_si537
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrds0_si537 is 3.43159 over 725 frames.
+mrds0_sx177 sil d ix z cl k r iy l cl k uh cl k ng y z cl k er iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrds0_sx177 is 3.73365 over 395 frames.
+mrds0_sx267 sil g r ao eh v r iy aw er l ey n f er s dh ih n f eh l ix n iy n cl t ih r ey er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrds0_sx267 is 3.65422 over 611 frames.
+mrds0_sx357 sil dh m oy s r n m ay z z s er m ay vcl d r aa cl s n aa cl f er m cl t ih er z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrds0_sx357 is 3.64076 over 644 frames.
+mrds0_sx447 sil p er s cl t ae vcl m ih l cl t ix dh sh r dx iy vcl sh iy z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrds0_sx447 is 3.74583 over 445 frames.
+mrds0_sx87 sil p er m ih v cl t r ay vcl z eh ax n ah cl b iy ae ey vcl t iy vcl en sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12332512,375904,7320552), after rebuilding, repo size was 9466912, effective beam was 9.27232 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrds0_sx87
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrds0_sx87 is 3.44407 over 429 frames.
+mree0_si1104 sil dh ih s cl g er r l s uw n d r aa cl s ih vcl b er zh w ah z ey s ix cl k ay cl t r ix s cl t hh ix vcl d ih cl t cl p r uw v z v f er l ay ix f sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12384384,429216,7211976), after rebuilding, repo size was 9287584, effective beam was 9.13627 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mree0_si1104
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mree0_si1104 is 3.64637 over 911 frames.
+mree0_si1734 sil ih w z n aa cl sil w dx eh v er cl t eh l s cl t ow l vcl b ay cl t ae l s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mree0_si1734 is 3.62634 over 648 frames.
+mree0_si1959 sil hh iy ih n aa vcl k eh v er dx ah hh ah n uw vcl g aa er z cl p f ao er vcl g ah ng cl k r ae sh cl sil f r m s ah w er r iy hh ah n d sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mree0_si1959 is 3.65073 over 835 frames.
+mree0_sx114 sil ix cl k er cl t uw n f iy cl ch er z ax m ah s cl g r ae cl ix n cl t ae cl p el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12562240,249152,7230432), after rebuilding, repo size was 9741760, effective beam was 8.68044 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mree0_sx114
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mree0_sx114 is 3.5268 over 527 frames.
+mree0_sx204 sil iy v ix n ay ow cl k ey zh w iy y ix cl dh ax m ah n d ey vcl b l uw z s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mree0_sx204 is 3.7249 over 514 frames.
+mree0_sx24 sil ao dh ow w ix z ax l ow m sil w iy z r aa ow f sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mree0_sx24 is 3.83716 over 459 frames.
+mree0_sx294 sil sh uw vcl jh r ae s cl p ix cl k eh cl t en s epi m ao l z uw z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mree0_sx294 is 3.92692 over 528 frames.
+mree0_sx384 sil k l iy sh ao r n ih s cl k er cl f er vcl jh oy ey s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mree0_sx384 is 3.78603 over 427 frames.
+mreh1_si1599 sil dh ey m uw v cl t ao r vcl dh s cl g eh v s epi w ix cl sh aa cl k ng iy g er n eh s sil eh l b ow ng eh n sh eh v ey ng sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mreh1_si1599 is 3.79544 over 1009 frames.
+mreh1_si2229 sil hh aw z y er s ah n b er n aw sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mreh1_si2229 is 3.99255 over 374 frames.
+mreh1_si969 sil w ah vcl d hh eh vcl b ih n ae m vcl b ae s ax dx er s epi w iy cl sil w ax z n aw vcl jh ae vcl g dx w ao l z ax v vcl b l ae cl k ix n b r eh cl k sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mreh1_si969 is 3.88736 over 1054 frames.
+mreh1_sx159 sil dh ix vcl g ah v er m eh n cl s aa cl aa th er z ey sh ix n ah v f ih s ih s en sh ih cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mreh1_sx159 is 3.73745 over 705 frames.
+mreh1_sx249 sil ay ey cl eh v r iy oy s cl t er aa n ao r ah s cl p l ey cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mreh1_sx249 is 3.87425 over 529 frames.
+mreh1_sx339 sil d ih vcl sh aa n cl k ae cl ch dh ae cl b ih vcl g uw s w ax th aw hh ae l cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mreh1_sx339 is 3.80895 over 597 frames.
+mreh1_sx429 sil ey cl t uw th cl p ey s cl t uw vcl b sh ix vcl d iy s cl k w iy z ch f r m ax vcl b aa ah m sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mreh1_sx429 is 3.97153 over 646 frames.
+mreh1_sx69 sil iy y r ey z ix n z sil aw cl d ao r s cl aa n ax cl p ao r cl sh s cl d ae cl p s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mreh1_sx69 is 3.85066 over 693 frames.
+mrem0_si1591 sil hh er l eh cl s sil m oy s cl t ix n cl p ao r dx ix vcl sil s cl b ow cl k ix z n ey sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrem0_si1591 is 3.41461 over 577 frames.
+mrem0_si511 sil dh ix s ix z ax cl p r aa el m dh vcl g ow z k en s er vcl l iy vcl b iy aa n k ah s cl ch en z v s aa l r iy ix n t ae n iy er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12266112,515040,7249848), after rebuilding, repo size was 8879104, effective beam was 9.95621 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrem0_si511
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrem0_si511 is 3.54591 over 872 frames.
+mrem0_si961 sil dh cl k ow l ih sh en w ax z cl t ax cl p r uw v ix vcl d ay z n el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12584096,281440,7170552), after rebuilding, repo size was 9388032, effective beam was 8.94841 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrem0_si961
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrem0_si961 is 3.44449 over 482 frames.
+mrem0_sx151 sil dh cl p r iy vcl iy s cl p iy cl k er cl p r zh eh n ix vcl ae m vcl b ih vcl y uw ax sh r ix z l cl s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12846112,316320,6842472), after rebuilding, repo size was 9363200, effective beam was 8.53971 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrem0_sx151
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrem0_sx151 is 3.33851 over 592 frames.
+mrem0_sx241 sil b ax hh ao w ey ow p m z ix n t w ix hh uw vcl jh cl ch ey m er sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (13537280,293120,6230232), after rebuilding, repo size was 9491328, effective beam was 8.62618 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrem0_sx241
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrem0_sx241 is 3.44357 over 474 frames.
+mrem0_sx331 sil dh vcl b ih vcl d ao vcl sil l ah v cl t ix cl ch uw ao n iy ow ax r ae vcl d aa l sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrem0_sx331 is 3.53613 over 628 frames.
+mrem0_sx421 sil dh ow s uw cl t iy cl ch f aa y uw s f er s cl ax vcl b ao l sh cl ch iy ix ng sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrem0_sx421 is 3.63002 over 572 frames.
+mrem0_sx61 sil ch r aw k uh en n r ow z z n eh v er f ey l z r m ae n cl t ix cl g ih f cl t sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrem0_sx61 is 3.36336 over 606 frames.
+mrew1_si1500 sil eh vcl iy uh dh ae ih cl s cl p l iy zh ix n d ih vcl n aa m iy ng m ao cl ch sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrew1_si1500 is 3.46204 over 504 frames.
+mrew1_si2130 sil dh ah z ih s vcl b aa dh er y uw sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrew1_si2130 is 3.7065 over 262 frames.
+mrew1_si870 sil ih w l cl k aa m ix dx ey cl f ay n r ey cl s ix z l ow ix z hh ae f vcl ae l ax aw r sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrew1_si870 is 3.58858 over 675 frames.
+mrew1_sx150 sil dh iy ih m ix n iy z cl k ax z iy n ix z ix cl k s cl k w ih z ix cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrew1_sx150 is 3.8733 over 452 frames.
+mrew1_sx240 sil ih s epi n aa dx iy z iy cl t ix cl k r ey l uw m ih n ey iy ng ix cl z ae cl p el s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrew1_sx240 is 3.83044 over 573 frames.
+mrew1_sx330 sil k aw dh ix n ah m er v cl t iy s cl p uw z ax s oy s ao s dh eh cl ch uw ae vcl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrew1_sx330 is 3.84665 over 687 frames.
+mrew1_sx420 sil s ey n s cl t ih s ih z ah cl t ae s z ih cl p er z sil w dh ah th ih m b el n ey el ix n cl p r eh cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrew1_sx420 is 3.60851 over 673 frames.
+mrew1_sx60 sil dh ax l eh vcl ix s l ey cl jh er m eh cl t ix vcl jh ah z ix s cl t ey dx ix f p ah vcl l cl k ih jh cl k ey sh en sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrew1_sx60 is 3.64062 over 670 frames.
+mrfk0_si1076 sil cl t iy n iy vcl b aa dx iy z cl d r aa cl d ao n uw vcl d r ay l iy f sil ey dx cl p aa l z vcl b ix ix z s epi m ao aa cl p el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfk0_si1076 is 3.73128 over 876 frames.
+mrfk0_si1706 sil ax l cl t ow y w cl t s cl k ax cl k ax n sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfk0_si1706 is 3.71482 over 298 frames.
+mrfk0_si2336 sil l er ah dh er th ih ng z jh vcl d uw r ay n aw el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfk0_si2336 is 3.6552 over 419 frames.
+mrfk0_sx176 sil b ay ng ix th er ow b r vcl d hh ao r s ix cl k ao er z ix n cl t w ih sh en ix n eh cl k s cl p er cl t iy s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfk0_sx176 is 3.69329 over 712 frames.
+mrfk0_sx266 sil w vcl d r ao l iy z epi m ah cl ch epi m ah n iy zh n iy vcl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfk0_sx266 is 3.73424 over 424 frames.
+mrfk0_sx356 sil dh ay ae n m ey s cl p l er vcl jh m b ay cl t er cl k oy z epi n eh cl k l s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfk0_sx356 is 3.67546 over 570 frames.
+mrfk0_sx446 sil t aa m ax s dh ix ng s l r vcl jh er cl k ae m cl s ao l z ax cl p r aa vcl el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfk0_sx446 is 3.71787 over 502 frames.
+mrfk0_sx86 sil s cl p ae n ix cl k aa s cl t uw m z er cl k oy cl k l r f el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfk0_sx86 is 3.72752 over 444 frames.
+mrfl0_si1156 sil d ih s z w ah en ix s eh s ax cl t ey vcl s ix n ao m s ix s cl t ix m ae ey cl k eh cl t er ay v ix z ax s cl k ao n m iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfl0_si1156 is 3.65491 over 930 frames.
+mrfl0_si1786 sil dh m ae n z ay l ey vcl z f l eh dx er vcl d sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfl0_si1786 is 3.58117 over 422 frames.
+mrfl0_si526 sil iy cl k uw g r aa zh l ey cl dh y ix n cl t aa r m ih m r sh ix cl sil l n s epi r er cl k er dx ix vcl g ix vcl l ah vcl s cl t ay sh en sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfl0_si526 is 3.48961 over 820 frames.
+mrfl0_sx166 sil b aa l vcl jh ix s y z r ey iy ow ae cl t ix v ax aa s ax cl t ah vcl s s cl t eh iy m ay cl k w ao r vcl d n uw z m z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12571744,450048,7003392), after rebuilding, repo size was 9172608, effective beam was 9.76723 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrfl0_sx166
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfl0_sx166 is 3.56303 over 842 frames.
+mrfl0_sx256 sil dh ay aa r ey dx ae cl t er s cl t aa m cl t w ae ey iy dx iy aa ix cl k l iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfl0_sx256 is 3.63433 over 570 frames.
+mrfl0_sx346 sil dh vcl b eh cl k uw dx er r iy cl k ow vcl f m s er cl p ix n s sil p oy z en s f ay ey ng s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfl0_sx346 is 3.59394 over 752 frames.
+mrfl0_sx436 sil p l iy s iy m jh ih s dh ix cl k l ah vcl th iy m sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfl0_sx436 is 3.79091 over 450 frames.
+mrfl0_sx76 sil ch ih ax l iy cl p l ey s cl jh iy m s f aa ow n s cl k ah l cl ch er en n ax vcl b aa cl k s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:CheckMemoryUsage():determinize-lattice-pruned.cc:316) Did not reach requested beam in determinize-lattice: size exceeds maximum 20000000 bytes; (repo,arcs,elems) = (12597472,382528,7028328), after rebuilding, repo size was 9474592, effective beam was 9.62626 vs. requested beam 10
+WARNING (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:274) Determinization finished earlier than the beam for utterance mrfl0_sx76
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrfl0_sx76 is 3.58182 over 637 frames.
+mrgm0_si1162 sil t uw cl dh iy z cl k ix n f ih vcl d ih cl t uw hh ih z cl p aa cl p y l er cl t ix sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrgm0_si1162 is 3.61801 over 646 frames.
+mrgm0_si1792 sil sil w ay vcl d ow th ey cl t eh l m iy vcl dh ih m s eh l th ih cl dh ih vcl b aa dh ax z dh ih el sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrgm0_si1792 is 3.52407 over 737 frames.
+mrgm0_si532 sil p er dh ih hh ae z ih z w cl k ah dx aw cl s dh aa cl p ix ae n aa cl k uw w r ey dx ih z n aw vcl g eh r s ax n cl d sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrgm0_si532 is 3.56014 over 956 frames.
+mrgm0_sx172 sil dh ix cl ch r ay l m f ax n cl w ao r iy ow vcl z ih r uw cl n ay iy v hh eh ow z uw vcl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrgm0_sx172 is 3.6063 over 811 frames.
+mrgm0_sx262 sil k ae n dh iy ey jh ix s iy ao ow w vcl th r ow ey l y ix n f ao s ix z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrgm0_sx262 is 3.51672 over 589 frames.
+mrgm0_sx416 sil ey hh uw z p aw aw ix z sil r eh l iy ah cl k er m z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrgm0_sx416 is 3.638 over 564 frames.
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 184 feature matrices.
+mrgm0_sx442 sil sil sil s ax vcl b er vcl b iy ih n hh aw s w ay th sil ao f dh ax z s ah f ax f r ah m sil dh vcl g ae vcl hh ae vcl ix cl sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:RebuildRepository():determinize-lattice-pruned.cc:283) Rebuilding repository.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrgm0_sx442 is 3.64378 over 1037 frames.
+LOG (nnet-forward[5.4.140~1-1ab3d]:main():nnet-forward.cc:192) Done 184 files in 7.26566min, (fps 258.632)
+mrgm0_sx82 sil g uh vcl s er v ix s uh vcl b iy r iy w ao dx ix vcl b aa vcl b iy cl t ih cl p s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mrgm0_sx82 is 3.72669 over 579 frames.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:main():latgen-faster-mapped.cc:164) Time taken 436.669s: real-time factor assuming 100 frames/sec is 0.387297
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:main():latgen-faster-mapped.cc:167) Done 184 utterances, failed for 0
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:main():latgen-faster-mapped.cc:169) Overall log-likelihood per frame is 3.66527 over 112748 frames.
+# Accounting: time=438 threads=1
+# Ended (code 0) at Fri Jun 22 18:39:28 CST 2018, elapsed time 438 seconds

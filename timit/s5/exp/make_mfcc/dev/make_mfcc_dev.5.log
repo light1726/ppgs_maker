@@ -1,0 +1,53 @@
+# compute-mfcc-feats --verbose=2 --config=conf/mfcc.conf scp,p:exp/make_mfcc/dev/wav_dev.5.scp ark:- | copy-feats --compress=true ark:- ark,scp:/home/lh17/project/timit/s5/mfcc/raw_mfcc_dev.5.ark,/home/lh17/project/timit/s5/mfcc/raw_mfcc_dev.5.scp 
+# Started at Fri Jun 15 16:51:11 CST 2018
+#
+compute-mfcc-feats --verbose=2 --config=conf/mfcc.conf scp,p:exp/make_mfcc/dev/wav_dev.5.scp ark:- 
+copy-feats --compress=true ark:- ark,scp:/home/lh17/project/timit/s5/mfcc/raw_mfcc_dev.5.ark,/home/lh17/project/timit/s5/mfcc/raw_mfcc_dev.5.scp 
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbns0_si1220
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbns0_si1850
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbns0_si590
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbns0_sx140
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbns0_sx230
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbns0_sx320
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbns0_sx410
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbns0_sx50
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbwm0_si1304
+LOG (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:172) Processed 10 utterances
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbwm0_si1934
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbwm0_si674
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbwm0_sx134
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbwm0_sx224
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbwm0_sx314
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbwm0_sx404
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mbwm0_sx44
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mcsh0_si1549
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mcsh0_si2179
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mcsh0_si919
+LOG (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:172) Processed 20 utterances
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mcsh0_sx109
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mcsh0_sx19
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mcsh0_sx199
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mcsh0_sx289
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mcsh0_sx379
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdlf0_si1583
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdlf0_si2213
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdlf0_si953
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdlf0_sx143
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdlf0_sx233
+LOG (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:172) Processed 30 utterances
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdlf0_sx323
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdlf0_sx413
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdlf0_sx53
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdls0_si1628
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdls0_si2258
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdls0_si998
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdls0_sx188
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdls0_sx278
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdls0_sx368
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdls0_sx8
+LOG (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:172) Processed 40 utterances
+VLOG[2] (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:173) Processed features for key mdls0_sx98
+LOG (compute-mfcc-feats[5.4.140~1-1ab3d]:main():compute-mfcc-feats.cc:176)  Done 40 out of 40 utterances.
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 40 feature matrices.
+# Accounting: time=1 threads=1
+# Ended (code 0) at Fri Jun 15 16:51:12 CST 2018, elapsed time 1 seconds

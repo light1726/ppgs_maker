@@ -1,0 +1,416 @@
+rbm-train-cd1-frmshuff --learn-rate=0.01 --l2-penalty=0.0002 --num-iters=40 --verbose=1 --feature-transform=exp/dnn4_pretrain-dbn/final.feature_transform exp/dnn4_pretrain-dbn/1.rbm.init 'ark:copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- |' exp/dnn4_pretrain-dbn/1.rbm 
+WARNING (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:SelectGpuId():cu-device.cc:196) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:315) Selecting from 4 GPUs
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(0): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(1): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(2): GeForce GTX 1080	free:251M, used:7868M, total:8119M, free/total:0.0309823
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(3): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:379) Trying to select device: 0 (automatically), mem_ratio: 0.985098
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:398) Success selecting device 0 free mem ratio: 0.985098
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:FinalizeActiveGpu():cu-device.cc:247) The active GPU is [0]: GeForce GTX 1080	free:7934M, used:185M, total:8119M, free/total:0.977216 version 6.1
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Init():nnet-randomizer.cc:32) Seeding by srand with : 777
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:146) RBM TRAINING STARTED
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:149) Iteration 1/40
+WARNING (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:RbmUpdate():nnet/nnet-rbm.h:336) Mismatch between pos_vis and neg_vis variances, danger of weight explosion. a) Reducing weights with scale 0.373992 b) Lowering learning rate to 0.0045 [pos_vis_std:1.01338,neg_vis_std:2.70963]
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.005 after processing 0.000277778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0049 after processing 1.38889 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0048 after processing 2.77778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0047 after processing 4.16667 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 5h]: 65.4202 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0046 after processing 5.55556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 2/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0045 after processing 6.94444 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0044 after processing 8.33333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 5000 utterances: time elapsed = 0.493593 min; processed 101555 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0043 after processing 9.72222 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 10h]: 57.56 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0042 after processing 11.1111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 3/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0041 after processing 12.5 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.004 after processing 13.8889 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 15h]: 56.0745 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0039 after processing 15.2778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0038 after processing 16.6667 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 10000 utterances: time elapsed = 0.975216 min; processed 103413 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0037 after processing 18.0556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 4/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0036 after processing 19.4444 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 20h]: 55.4031 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0035 after processing 20.8333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0034 after processing 22.2222 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0033 after processing 23.6111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 5/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0032 after processing 25 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 25h]: 55.0127 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 15000 utterances: time elapsed = 1.45781 min; processed 103927 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0031 after processing 26.3889 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.003 after processing 27.7778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0029 after processing 29.1667 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 30h]: 54.8479 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0028 after processing 30.5556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 6/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0027 after processing 31.9444 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0026 after processing 33.3333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 20000 utterances: time elapsed = 1.94096 min; processed 104173 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0025 after processing 34.7222 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 35h]: 54.6717 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0024 after processing 36.1111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 7/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0023 after processing 37.5 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0022 after processing 38.8889 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 40h]: 54.5973 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0021 after processing 40.2778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.002 after processing 41.6667 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 25000 utterances: time elapsed = 2.42441 min; processed 104318 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0019 after processing 43.0556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 8/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0018 after processing 44.4444 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 45h]: 54.5244 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0017 after processing 45.8333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0016 after processing 47.2222 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0015 after processing 48.6111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 9/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0014 after processing 50 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 50h]: 54.4273 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 30000 utterances: time elapsed = 2.90913 min; processed 104348 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0013 after processing 51.3889 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0012 after processing 52.7778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.0011 after processing 54.1667 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 55h]: 54.429 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 55.5556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 10/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 56.9444 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 58.3333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 35000 utterances: time elapsed = 3.39321 min; processed 104403 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 59.7222 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 60h]: 54.3454 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 61.1111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 11/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 62.5 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 63.8889 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 65h]: 54.3831 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 65.2778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 66.6667 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 40000 utterances: time elapsed = 3.87886 min; processed 104405 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 68.0556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 12/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 69.4444 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 70h]: 54.392 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 70.8333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 72.2222 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 73.6111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 13/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 75 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 75h]: 54.3713 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 45000 utterances: time elapsed = 4.36559 min; processed 104365 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 76.3889 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 77.7778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 79.1667 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 80h]: 54.4192 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 80.5556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 14/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 81.9444 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 83.3333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 50000 utterances: time elapsed = 4.85181 min; processed 104360 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 84.7222 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 85h]: 54.3599 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 86.1111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 15/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 87.5 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 88.8889 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 90h]: 54.38 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 90.2778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 91.6667 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 55000 utterances: time elapsed = 5.33738 min; processed 104354 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 93.0556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 16/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 94.4444 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 95h]: 54.3784 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 95.8333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 97.2222 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 98.6111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 17/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 100 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 100h]: 54.3622 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 60000 utterances: time elapsed = 5.82413 min; processed 104339 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 101.389 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 102.778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 104.167 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 105h]: 54.4005 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 105.556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 18/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 106.944 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 108.333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 109.722 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 65000 utterances: time elapsed = 6.30976 min; processed 104344 frames per sec.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 110h]: 54.3415 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 111.111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 19/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 112.5 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 113.889 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 115h]: 54.3556 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 115.278 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 116.667 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 118.056 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 70000 utterances: time elapsed = 6.79459 min; processed 104356 frames per sec.
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 20/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 119.444 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 120h]: 54.3509 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 120.833 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 122.222 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 123.611 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 21/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 125 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 125h]: 54.334 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 126.389 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 75000 utterances: time elapsed = 7.27992 min; processed 104361 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 127.778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 129.167 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 130h]: 54.3634 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 130.556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 22/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 131.944 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 133.333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 134.722 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 135h]: 54.3022 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 80000 utterances: time elapsed = 7.76526 min; processed 104370 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 136.111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 23/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 137.5 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 138.889 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 140h]: 54.3261 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 140.278 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 141.667 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 143.056 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 85000 utterances: time elapsed = 8.24919 min; processed 104381 frames per sec.
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 24/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 144.444 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 145h]: 54.3281 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 145.833 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 147.222 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 148.611 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 25/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 150 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 150h]: 54.3039 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 151.389 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 90000 utterances: time elapsed = 9.23468 min; processed 98737.8 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 152.778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 154.167 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 155h]: 54.347 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 155.556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 26/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 156.944 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 158.333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 159.722 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 160h]: 54.2744 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 95000 utterances: time elapsed = 9.72734 min; processed 98945.8 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 161.111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 27/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 162.5 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 163.889 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 165h]: 54.3151 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 165.278 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 166.667 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 168.056 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 28/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 100000 utterances: time elapsed = 10.2206 min; processed 99132.6 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 169.444 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 170h]: 54.2993 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 170.833 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 172.222 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 173.611 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 29/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 175 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 175h]: 54.291 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 176.389 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 105000 utterances: time elapsed = 10.7135 min; processed 99303 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 177.778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 179.167 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 180h]: 54.3249 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 180.556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 30/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 181.944 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 183.333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 184.722 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 185h]: 54.2598 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 110000 utterances: time elapsed = 11.2062 min; processed 99458.5 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 186.111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 31/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 187.5 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 188.889 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 190h]: 54.2953 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 190.278 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 191.667 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 193.056 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 32/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 115000 utterances: time elapsed = 11.701 min; processed 99585 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 194.444 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 195h]: 54.2935 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 195.833 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 197.222 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 198.611 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 33/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 200 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 200h]: 54.2819 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 201.389 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 120000 utterances: time elapsed = 12.196 min; processed 99700.8 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 202.778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 204.167 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 205h]: 54.3042 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 205.556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 34/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 206.944 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 208.333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 209.722 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 210h]: 54.245 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 125000 utterances: time elapsed = 12.6895 min; processed 99812 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 211.111 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 35/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 212.5 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 213.889 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 215h]: 54.2834 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 215.278 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 216.667 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 218.056 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 36/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 219.444 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 130000 utterances: time elapsed = 13.1854 min; processed 99905.8 frames per sec.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 220h]: 54.2746 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 220.833 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 222.222 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 223.611 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 37/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 225 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 225h]: 54.262 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 226.389 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 227.778 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 135000 utterances: time elapsed = 13.6779 min; processed 100017 frames per sec.
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 229.167 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 230h]: 54.2948 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 230.556 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 38/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 231.944 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 233.333 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 234.722 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 235h]: 54.2267 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 236.111 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 140000 utterances: time elapsed = 14.1726 min; processed 100103 frames per sec.
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 39/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 237.5 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 238.889 h
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 240h]: 54.2678 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 240.278 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 241.667 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 243.056 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:263) Iteration 40/40
+copy-feats scp:exp/dnn4_pretrain-dbn/train.scp ark:- 
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 244.444 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:185) After 145000 utterances: time elapsed = 14.6661 min; processed 100188 frames per sec.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:269) ProgressLoss[last 5h of 245h]: 54.2678 (Mse)
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 245.833 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 247.222 h
+VLOG[1] (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:247) Setting momentum 0.9 and learning rate 0.001 after processing 248.611 h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:271) Done 40 iterations, 147840 files, skipped 0 files. [14.9527 min, processing100222 frames per sec.]
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:main():rbm-train-cd1-frmshuff.cc:277) AvgLoss: 54.7088 (Mse), [RMS 0.352616, frames 8.99149e+07]
+progress: [65.4202 57.56 56.0745 55.4031 55.0127 54.8479 54.6717 54.5973 54.5244 54.4273 54.429 54.3454 54.3831 54.392 54.3713 54.4192 54.3599 54.38 54.3784 54.3622 54.4005 54.3415 54.3556 54.3509 54.334 54.3634 54.3022 54.3261 54.3281 54.3039 54.347 54.2744 54.3151 54.2993 54.291 54.3249 54.2598 54.2953 54.2935 54.2819 54.3042 54.245 54.2834 54.2746 54.262 54.2948 54.2267 54.2678 54.2678 ]
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:PrintProfile():cu-device.cc:449) -----
+[cudevice profile]
+MulRowsVec	14.384s
+MulElements	22.1071s
+CuVector::SetZero	25.549s
+Sigmoid	25.8117s
+Set	26.1186s
+AddVecToRows	26.1559s
+CuMatrix::SetZero	34.3462s
+AddMatVec	38.8929s
+CuVector::Resize	49.2771s
+CuMatrixBase::CopyFromMat(from other CuMatrixBase)	52.0993s
+AddMat	65.8771s
+CuMatrix::Resize	77.2932s
+CopyToVec	108.866s
+AddMatMat	164.821s
+Sum	343.997s
+Total GPU time:	1143.5s (may involve some double-counting)
+-----
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:PrintMemoryUsage():cu-allocator.cc:127) Memory usage: 172291036 bytes currently allocated (max: 172483788); 127855356 currently in use by user (max: 132679836); 558662/16786976 calls to Malloc* resulted in CUDA calls.
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:PrintMemoryUsage():cu-allocator.cc:136) Time taken in cudaMallocPitch=46.1189, in cudaMalloc=0.0319517, in cudaFree=13.1152, in this->MallocPitch()=62.9793
+LOG (rbm-train-cd1-frmshuff[5.4.140~1-1ab3d]:PrintMemoryUsage():cu-device.cc:422) Memory used (according to the device): 416284672 bytes.

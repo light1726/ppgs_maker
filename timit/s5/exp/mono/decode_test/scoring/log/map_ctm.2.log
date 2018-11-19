@@ -1,0 +1,5 @@
+# mkdir exp/mono/decode_test/score_2 ; cat exp/mono/decode_test/scoring/2.ctm | utils/int2sym.pl -f 5 exp/mono/graph/words.txt | local/timit_norm_trans.pl -i - -m conf/phones.60-48-39.map -from 48 -to 39 > exp/mono/decode_test/scoring/2.ctm_39phn 
+# Started at Mon Jun 18 14:01:06 CST 2018
+#
+# Accounting: time=0 threads=1
+# Ended (code 0) at Mon Jun 18 14:01:06 CST 2018, elapsed time 0 seconds

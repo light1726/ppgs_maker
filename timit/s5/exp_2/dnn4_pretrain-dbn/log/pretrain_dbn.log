@@ -1,0 +1,189 @@
+# steps/nnet/pretrain_dbn.sh --nn-depth 4 --hid-dim 1024 --rbm-iter 20 data-deltas-tri1/train exp_2/dnn4_pretrain-dbn 
+# Started at Fri Jun 22 17:39:41 CST 2018
+#
+steps/nnet/pretrain_dbn.sh --nn-depth 4 --hid-dim 1024 --rbm-iter 20 data-deltas-tri1/train exp_2/dnn4_pretrain-dbn
+# INFO
+steps/nnet/pretrain_dbn.sh : Pre-training Deep Belief Network as a stack of RBMs
+	 dir       : exp_2/dnn4_pretrain-dbn 
+	 Train-set : data-deltas-tri1/train '3696'
+
+LOG ([5.4.140~1-1ab3d]:main():cuda-gpu-available.cc:49) 
+
+### IS CUDA GPU AVAILABLE? 'mjrc-server10' ###
+WARNING ([5.4.140~1-1ab3d]:SelectGpuId():cu-device.cc:196) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG ([5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:315) Selecting from 4 GPUs
+LOG ([5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(0): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG ([5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(1): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG ([5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(2): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG ([5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(3): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG ([5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:379) Trying to select device: 0 (automatically), mem_ratio: 0.985098
+LOG ([5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:398) Success selecting device 0 free mem ratio: 0.985098
+LOG ([5.4.140~1-1ab3d]:FinalizeActiveGpu():cu-device.cc:247) The active GPU is [0]: GeForce GTX 1080	free:7934M, used:185M, total:8119M, free/total:0.977216 version 6.1
+### HURRAY, WE GOT A CUDA GPU FOR COMPUTATION!!! ##
+
+### Testing CUDA setup with a small computation (setup = cuda-toolkit + gpu-driver + kaldi):
+### Test OK!
+
+# PREPARING FEATURES
+copy-feats --compress=true scp:data-deltas-tri1/train/feats.scp ark,scp:/tmp/kaldi.mcD0/train.ark,exp_2/dnn4_pretrain-dbn/train_sorted.scp 
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+# 'apply-cmvn' not used,
+feat-to-dim 'ark:copy-feats scp:exp_2/dnn4_pretrain-dbn/train.scp ark:- |' - 
+copy-feats scp:exp_2/dnn4_pretrain-dbn/train.scp ark:- 
+WARNING (feat-to-dim[5.4.140~1-1ab3d]:Close():kaldi-io.cc:515) Pipe copy-feats scp:exp_2/dnn4_pretrain-dbn/train.scp ark:- | had nonzero return status 13
+# feature dim : 39 (input of 'feature_transform')
++ default 'feature_transform_proto' with splice +/-5 frames
+nnet-initialize --binary=false exp_2/dnn4_pretrain-dbn/splice5.proto exp_2/dnn4_pretrain-dbn/tr_splice5.nnet 
+VLOG[1] (nnet-initialize[5.4.140~1-1ab3d]:Init():nnet-nnet.cc:314) <Splice> <InputDim> 39 <OutputDim> 429 <BuildVector> -5:5 </BuildVector>
+LOG (nnet-initialize[5.4.140~1-1ab3d]:main():nnet-initialize.cc:63) Written initialized model to exp_2/dnn4_pretrain-dbn/tr_splice5.nnet
+# compute normalization stats from 10k sentences
+compute-cmvn-stats ark:- exp_2/dnn4_pretrain-dbn/cmvn-g.stats 
+nnet-forward --print-args=true --use-gpu=yes exp_2/dnn4_pretrain-dbn/tr_splice5.nnet 'ark:copy-feats scp:exp_2/dnn4_pretrain-dbn/train.scp.10k ark:- |' ark:- 
+WARNING (nnet-forward[5.4.140~1-1ab3d]:SelectGpuId():cu-device.cc:196) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:315) Selecting from 4 GPUs
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(0): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(1): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(2): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(3): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:379) Trying to select device: 0 (automatically), mem_ratio: 0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:398) Success selecting device 0 free mem ratio: 0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:FinalizeActiveGpu():cu-device.cc:247) The active GPU is [0]: GeForce GTX 1080	free:7934M, used:185M, total:8119M, free/total:0.977216 version 6.1
+copy-feats scp:exp_2/dnn4_pretrain-dbn/train.scp.10k ark:- 
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (nnet-forward[5.4.140~1-1ab3d]:main():nnet-forward.cc:192) Done 3696 files in 0.169497min, (fps 221034)
+LOG (compute-cmvn-stats[5.4.140~1-1ab3d]:main():compute-cmvn-stats.cc:168) Wrote global CMVN stats to exp_2/dnn4_pretrain-dbn/cmvn-g.stats
+LOG (compute-cmvn-stats[5.4.140~1-1ab3d]:main():compute-cmvn-stats.cc:171) Done accumulating CMVN stats for 3696 utterances; 0 had errors.
+# + normalization of NN-input at 'exp_2/dnn4_pretrain-dbn/tr_splice5_cmvn-g.nnet'
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:53) Reading exp_2/dnn4_pretrain-dbn/tr_splice5.nnet
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:65) Concatenating cmvn-to-nnet exp_2/dnn4_pretrain-dbn/cmvn-g.stats -|
+cmvn-to-nnet exp_2/dnn4_pretrain-dbn/cmvn-g.stats - 
+LOG (cmvn-to-nnet[5.4.140~1-1ab3d]:main():cmvn-to-nnet.cc:114) Written cmvn in 'nnet1' model to: -
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:82) Written model to exp_2/dnn4_pretrain-dbn/tr_splice5_cmvn-g.nnet
+
+### Showing the final 'feature_transform':
+nnet-info exp_2/dnn4_pretrain-dbn/tr_splice5_cmvn-g.nnet 
+LOG (nnet-info[5.4.140~1-1ab3d]:main():nnet-info.cc:57) Printed info about exp_2/dnn4_pretrain-dbn/tr_splice5_cmvn-g.nnet
+num-components 3
+input-dim 39
+output-dim 429
+number-of-parameters 0.000858 millions
+component 1 : <Splice>, input-dim 39, output-dim 429, 
+  frame_offsets [ -5 -4 -3 -2 -1 0 1 2 3 4 5 ]
+component 2 : <AddShift>, input-dim 429, output-dim 429, 
+  shift_data ( min -0.022927, max 0.0263485, mean -0.000205403, stddev 0.00521537, skewness 0.382589, kurtosis 5.49234 ) , lr-coef 0
+component 3 : <Rescale>, input-dim 429, output-dim 429, 
+  scale_data ( min 0.0507997, max 1.33961, mean 0.478997, stddev 0.3859, skewness 0.506142, kurtosis -1.11147 ) , lr-coef 0
+###
+
+# PRE-TRAINING RBM LAYER 1
+# initializing 'exp_2/dnn4_pretrain-dbn/1.rbm.init'
+# pretraining 'exp_2/dnn4_pretrain-dbn/1.rbm' (input gauss, lrate 0.01, iters 40)
+# converting RBM to exp_2/dnn4_pretrain-dbn/1.dbn
+rbm-convert-to-nnet exp_2/dnn4_pretrain-dbn/1.rbm exp_2/dnn4_pretrain-dbn/1.dbn 
+LOG (rbm-convert-to-nnet[5.4.140~1-1ab3d]:main():rbm-convert-to-nnet.cc:69) Written model to exp_2/dnn4_pretrain-dbn/1.dbn
+
+# PRE-TRAINING RBM LAYER 2
+# computing cmvn stats 'exp_2/dnn4_pretrain-dbn/2.cmvn' for RBM initialization
+WARNING (nnet-forward[5.4.140~1-1ab3d]:SelectGpuId():cu-device.cc:196) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:315) Selecting from 4 GPUs
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(0): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(1): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(2): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(3): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:379) Trying to select device: 0 (automatically), mem_ratio: 0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:398) Success selecting device 0 free mem ratio: 0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:FinalizeActiveGpu():cu-device.cc:247) The active GPU is [0]: GeForce GTX 1080	free:7934M, used:185M, total:8119M, free/total:0.977216 version 6.1
+nnet-concat exp_2/dnn4_pretrain-dbn/final.feature_transform exp_2/dnn4_pretrain-dbn/1.dbn - 
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:53) Reading exp_2/dnn4_pretrain-dbn/final.feature_transform
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:65) Concatenating exp_2/dnn4_pretrain-dbn/1.dbn
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:82) Written model to -
+copy-feats scp:exp_2/dnn4_pretrain-dbn/train.scp.10k ark:- 
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (nnet-forward[5.4.140~1-1ab3d]:main():nnet-forward.cc:192) Done 3696 files in 0.479074min, (fps 78201.9)
+LOG (compute-cmvn-stats[5.4.140~1-1ab3d]:main():compute-cmvn-stats.cc:168) Wrote global CMVN stats to standard output
+LOG (compute-cmvn-stats[5.4.140~1-1ab3d]:main():compute-cmvn-stats.cc:171) Done accumulating CMVN stats for 3696 utterances; 0 had errors.
+LOG (cmvn-to-nnet[5.4.140~1-1ab3d]:main():cmvn-to-nnet.cc:114) Written cmvn in 'nnet1' model to: exp_2/dnn4_pretrain-dbn/2.cmvn
+initializing 'exp_2/dnn4_pretrain-dbn/2.rbm.init'
+pretraining 'exp_2/dnn4_pretrain-dbn/2.rbm' (lrate 0.4, iters 20)
+# appending RBM to exp_2/dnn4_pretrain-dbn/2.dbn
+nnet-concat exp_2/dnn4_pretrain-dbn/1.dbn 'rbm-convert-to-nnet exp_2/dnn4_pretrain-dbn/2.rbm - |' exp_2/dnn4_pretrain-dbn/2.dbn 
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:53) Reading exp_2/dnn4_pretrain-dbn/1.dbn
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:65) Concatenating rbm-convert-to-nnet exp_2/dnn4_pretrain-dbn/2.rbm - |
+rbm-convert-to-nnet exp_2/dnn4_pretrain-dbn/2.rbm - 
+LOG (rbm-convert-to-nnet[5.4.140~1-1ab3d]:main():rbm-convert-to-nnet.cc:69) Written model to -
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:82) Written model to exp_2/dnn4_pretrain-dbn/2.dbn
+
+# PRE-TRAINING RBM LAYER 3
+# computing cmvn stats 'exp_2/dnn4_pretrain-dbn/3.cmvn' for RBM initialization
+WARNING (nnet-forward[5.4.140~1-1ab3d]:SelectGpuId():cu-device.cc:196) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:315) Selecting from 4 GPUs
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(0): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(1): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(2): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(3): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:379) Trying to select device: 0 (automatically), mem_ratio: 0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:398) Success selecting device 0 free mem ratio: 0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:FinalizeActiveGpu():cu-device.cc:247) The active GPU is [0]: GeForce GTX 1080	free:7934M, used:185M, total:8119M, free/total:0.977216 version 6.1
+nnet-concat exp_2/dnn4_pretrain-dbn/final.feature_transform exp_2/dnn4_pretrain-dbn/2.dbn - 
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:53) Reading exp_2/dnn4_pretrain-dbn/final.feature_transform
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:65) Concatenating exp_2/dnn4_pretrain-dbn/2.dbn
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:82) Written model to -
+copy-feats scp:exp_2/dnn4_pretrain-dbn/train.scp.10k ark:- 
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (nnet-forward[5.4.140~1-1ab3d]:main():nnet-forward.cc:192) Done 3696 files in 0.396138min, (fps 94574.4)
+LOG (compute-cmvn-stats[5.4.140~1-1ab3d]:main():compute-cmvn-stats.cc:168) Wrote global CMVN stats to standard output
+LOG (compute-cmvn-stats[5.4.140~1-1ab3d]:main():compute-cmvn-stats.cc:171) Done accumulating CMVN stats for 3696 utterances; 0 had errors.
+LOG (cmvn-to-nnet[5.4.140~1-1ab3d]:main():cmvn-to-nnet.cc:114) Written cmvn in 'nnet1' model to: exp_2/dnn4_pretrain-dbn/3.cmvn
+initializing 'exp_2/dnn4_pretrain-dbn/3.rbm.init'
+pretraining 'exp_2/dnn4_pretrain-dbn/3.rbm' (lrate 0.4, iters 20)
+# appending RBM to exp_2/dnn4_pretrain-dbn/3.dbn
+nnet-concat exp_2/dnn4_pretrain-dbn/2.dbn 'rbm-convert-to-nnet exp_2/dnn4_pretrain-dbn/3.rbm - |' exp_2/dnn4_pretrain-dbn/3.dbn 
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:53) Reading exp_2/dnn4_pretrain-dbn/2.dbn
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:65) Concatenating rbm-convert-to-nnet exp_2/dnn4_pretrain-dbn/3.rbm - |
+rbm-convert-to-nnet exp_2/dnn4_pretrain-dbn/3.rbm - 
+LOG (rbm-convert-to-nnet[5.4.140~1-1ab3d]:main():rbm-convert-to-nnet.cc:69) Written model to -
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:82) Written model to exp_2/dnn4_pretrain-dbn/3.dbn
+
+# PRE-TRAINING RBM LAYER 4
+# computing cmvn stats 'exp_2/dnn4_pretrain-dbn/4.cmvn' for RBM initialization
+WARNING (nnet-forward[5.4.140~1-1ab3d]:SelectGpuId():cu-device.cc:196) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:315) Selecting from 4 GPUs
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(0): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(1): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(2): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(3): GeForce GTX 1080	free:7998M, used:121M, total:8119M, free/total:0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:379) Trying to select device: 0 (automatically), mem_ratio: 0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:398) Success selecting device 0 free mem ratio: 0.985098
+LOG (nnet-forward[5.4.140~1-1ab3d]:FinalizeActiveGpu():cu-device.cc:247) The active GPU is [0]: GeForce GTX 1080	free:7934M, used:185M, total:8119M, free/total:0.977216 version 6.1
+nnet-concat exp_2/dnn4_pretrain-dbn/final.feature_transform exp_2/dnn4_pretrain-dbn/3.dbn - 
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:53) Reading exp_2/dnn4_pretrain-dbn/final.feature_transform
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:65) Concatenating exp_2/dnn4_pretrain-dbn/3.dbn
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:82) Written model to -
+copy-feats scp:exp_2/dnn4_pretrain-dbn/train.scp.10k ark:- 
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3696 feature matrices.
+LOG (nnet-forward[5.4.140~1-1ab3d]:main():nnet-forward.cc:192) Done 3696 files in 0.346524min, (fps 108115)
+LOG (compute-cmvn-stats[5.4.140~1-1ab3d]:main():compute-cmvn-stats.cc:168) Wrote global CMVN stats to standard output
+LOG (compute-cmvn-stats[5.4.140~1-1ab3d]:main():compute-cmvn-stats.cc:171) Done accumulating CMVN stats for 3696 utterances; 0 had errors.
+LOG (cmvn-to-nnet[5.4.140~1-1ab3d]:main():cmvn-to-nnet.cc:114) Written cmvn in 'nnet1' model to: exp_2/dnn4_pretrain-dbn/4.cmvn
+initializing 'exp_2/dnn4_pretrain-dbn/4.rbm.init'
+pretraining 'exp_2/dnn4_pretrain-dbn/4.rbm' (lrate 0.4, iters 20)
+# appending RBM to exp_2/dnn4_pretrain-dbn/4.dbn
+nnet-concat exp_2/dnn4_pretrain-dbn/3.dbn 'rbm-convert-to-nnet exp_2/dnn4_pretrain-dbn/4.rbm - |' exp_2/dnn4_pretrain-dbn/4.dbn 
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:53) Reading exp_2/dnn4_pretrain-dbn/3.dbn
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:65) Concatenating rbm-convert-to-nnet exp_2/dnn4_pretrain-dbn/4.rbm - |
+rbm-convert-to-nnet exp_2/dnn4_pretrain-dbn/4.rbm - 
+LOG (rbm-convert-to-nnet[5.4.140~1-1ab3d]:main():rbm-convert-to-nnet.cc:69) Written model to -
+LOG (nnet-concat[5.4.140~1-1ab3d]:main():nnet-concat.cc:82) Written model to exp_2/dnn4_pretrain-dbn/4.dbn
+
+# REPORT
+# RBM pre-training progress (line per-layer)
+exp_2/dnn4_pretrain-dbn/log/rbm.1.log:progress: [49.9777 44.0113 42.7889 42.2465 41.9427 41.7844 41.6455 41.5278 41.4629 41.392 41.3515 41.3047 41.2852 41.308 41.2927 41.3245 41.3088 41.2948 41.2998 41.282 41.3136 41.3083 41.2804 41.286 41.271 41.2984 41.2914 41.2659 41.2643 41.2625 41.2823 41.2702 41.2502 41.2605 41.2509 41.2716 41.2582 41.2458 41.247 41.2461 41.2635 41.2508 41.2397 41.2402 41.2273 41.2481 41.2302 41.2276 41.2319 ]
+exp_2/dnn4_pretrain-dbn/log/rbm.2.log:progress: [6.61255 5.40658 5.29729 5.23163 5.16447 5.10628 5.0503 4.98676 4.93746 4.88474 4.8381 4.80481 4.79878 4.80197 4.79953 4.80464 4.8056 4.79913 4.80243 4.80074 4.80459 4.80497 4.7989 4.80173 ]
+exp_2/dnn4_pretrain-dbn/log/rbm.3.log:progress: [6.24437 4.77198 4.66697 4.61712 4.56824 4.52613 4.48512 4.43745 4.40069 4.36127 4.32926 4.30549 4.29906 4.30089 4.29863 4.30297 4.30355 4.29727 4.29992 4.29798 4.30194 4.30319 4.29721 4.29939 ]
+exp_2/dnn4_pretrain-dbn/log/rbm.4.log:progress: [4.80051 3.84976 3.77393 3.73586 3.70128 3.67172 3.64398 3.60984 3.58462 3.55779 3.53466 3.52144 3.51681 3.5194 3.5178 3.52016 3.52276 3.51684 3.52041 3.51732 3.51994 3.52302 3.5174 3.51933 ]
+
+Pre-training finished.
+# Removing features tmpdir /tmp/kaldi.mcD0 @ mjrc-server10
+train.ark
+# Accounting: time=2489 threads=1
+# Ended (code 0) at Fri Jun 22 18:21:10 CST 2018, elapsed time 2489 seconds

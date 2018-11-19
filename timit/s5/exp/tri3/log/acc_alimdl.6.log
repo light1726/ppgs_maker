@@ -1,0 +1,228 @@
+# ali-to-post "ark:gunzip -c exp/tri3/ali.6.gz|" ark:- | gmm-acc-stats-twofeats exp/tri3/35.mdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split20/6/utt2spk scp:data/train/split20/6/cmvn.scp scp:data/train/split20/6/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2_ali/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/train/split20/6/utt2spk ark:exp/tri3/trans.6 ark:- ark:- |" "ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split20/6/utt2spk scp:data/train/split20/6/cmvn.scp scp:data/train/split20/6/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2_ali/final.mat ark:- ark:- |" ark,s,cs:- exp/tri3/35.6.acc 
+# Started at Wed Jun 20 18:05:26 CST 2018
+#
+ali-to-post 'ark:gunzip -c exp/tri3/ali.6.gz|' ark:- 
+gmm-acc-stats-twofeats exp/tri3/35.mdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split20/6/utt2spk scp:data/train/split20/6/cmvn.scp scp:data/train/split20/6/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2_ali/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/train/split20/6/utt2spk ark:exp/tri3/trans.6 ark:- ark:- |' 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split20/6/utt2spk scp:data/train/split20/6/cmvn.scp scp:data/train/split20/6/feats.scp ark:- | splice-feats --left-context=3 --right-context=3 ark:- ark:- | transform-feats exp/tri2_ali/final.mat ark:- ark:- |' ark,s,cs:- exp/tri3/35.6.acc 
+transform-feats exp/tri2_ali/final.mat ark:- ark:- 
+transform-feats --utt2spk=ark:data/train/split20/6/utt2spk ark:exp/tri3/trans.6 ark:- ark:- 
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/train/split20/6/utt2spk scp:data/train/split20/6/cmvn.scp scp:data/train/split20/6/feats.scp ark:- 
+splice-feats --left-context=3 --right-context=3 ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/train/split20/6/utt2spk scp:data/train/split20/6/cmvn.scp scp:data/train/split20/6/feats.scp ark:- 
+transform-feats exp/tri2_ali/final.mat ark:- ark:- 
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.7885 over 441 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -51.4409 over 744 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.418 over 748 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.3177 over 799 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -43.9255 over 568 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.8968 over 520 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.9425 over 810 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -52.0487 over 582 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.2524 over 1036 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.9209 over 597 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -47.9511
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.7046 over 514 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -43.2131 over 541 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -43.2899 over 440 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.0993 over 710 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.7934 over 660 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.9631 over 670 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.8615 over 523 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.9147 over 660 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.6024 over 346 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -51.5398 over 510 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -47.6601
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.8029 over 467 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -40.0928 over 774 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -43.6503 over 604 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -44.8006 over 505 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -43.7366 over 577 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.7859 over 798 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.1603 over 529 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.5815 over 638 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -51.801 over 409 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.6301 over 665 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -47.0054
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.0343 over 646 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.0704 over 552 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.2128 over 870 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.6557 over 497 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.709 over 536 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -50.8271 over 505 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.2184 over 479 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.619 over 463 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.2286 over 592 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.8849 over 536 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -47.0801
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.7865 over 605 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.5769 over 692 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.4204 over 790 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -51.1376 over 693 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.1948 over 388 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.5649 over 490 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.6266 over 682 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.2463 over 542 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.1417 over 312 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.585 over 641 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -47.2011
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -44.7718 over 893 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.1975 over 710 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.7407 over 555 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.211 over 523 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.1313 over 957 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.5918 over 542 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.3699 over 538 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.3842 over 524 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.5551 over 609 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -44.2821 over 518 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -46.9612
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.3528 over 757 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.2454 over 872 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -52.1174 over 682 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.2421 over 693 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -42.8145 over 572 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -44.4694 over 575 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.4346 over 662 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.2453 over 523 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.8722 over 619 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.9306 over 511 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -46.9895
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.079 over 792 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.1599 over 537 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.4342 over 1096 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.3958 over 492 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -43.7621 over 469 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.4279 over 732 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.3787 over 906 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -44.1906 over 612 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.7356 over 545 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.5074 over 450 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -46.9828
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.213 over 286 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.1482 over 499 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.8377 over 518 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.5667 over 492 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -51.5752 over 755 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.3991 over 807 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.9382 over 557 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.0167 over 724 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.2721 over 735 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -44.5445 over 851 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -47.0345
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.4656 over 299 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.1115 over 561 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.0431 over 496 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.087 over 894 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.2716 over 744 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -44.8142 over 683 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -51.1733 over 401 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.4839 over 428 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.7873 over 642 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.6497 over 506 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -47.0288
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.0402 over 424 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.971 over 395 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -50.6626 over 464 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.4602 over 474 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.554 over 895 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -41.8462 over 487 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.7309 over 829 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.9313 over 496 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.4128 over 593 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.4747 over 431 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -47.0798
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.3634 over 488 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.4776 over 492 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -42.5906 over 449 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.1234 over 524 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.5384 over 913 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.0511 over 854 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.3383 over 551 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.3599 over 499 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.5447 over 483 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.0312 over 481 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -46.9696
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.5075 over 935 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.6942 over 957 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.6477 over 524 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.392 over 659 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.9517 over 570 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -43.7403 over 451 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.8903 over 502 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -43.9079 over 536 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -44.3694 over 332 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.9404 over 470 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -46.9421
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.2299 over 1002 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.4015 over 484 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -44.8471 over 515 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.5227 over 643 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.6162 over 659 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.1991 over 536 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -41.6573 over 560 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.996 over 804 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -50.2533 over 346 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -41.6375 over 493 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -46.873
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -58.8981 over 502 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.8669 over 755 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.7629 over 452 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.2288 over 378 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.9997 over 463 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.2936 over 373 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.6148 over 678 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -44.653 over 566 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -50.1634 over 671 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.3798 over 967 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -47.0012
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.8025 over 662 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -50.1278 over 552 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -50.8414 over 838 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -43.0832 over 546 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.5162 over 856 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.8951 over 397 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.1817 over 595 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -38.5154 over 409 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -44.8019 over 449 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -50.957 over 403 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -46.9887
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.9501 over 276 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.4257 over 563 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.4822 over 734 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.5553 over 609 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.5576 over 395 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.6881 over 487 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.396 over 469 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.1199 over 495 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.104 over 897 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -50.2813 over 630 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -47.0358
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.6324 over 956 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.2999 over 569 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -40.3002 over 388 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.1501 over 506 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.4129 over 605 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.6105 over 634 frames.
+LOG (ali-to-post[5.4.140~1-1ab3d]:main():ali-to-post.cc:73) Converted 184 alignments.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.6861 over 365 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.5398 over 701 frames.
+LOG (apply-cmvn[5.4.140~1-1ab3d]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 184 utterances, errors on 0
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -48.7328 over 561 frames.
+LOG (apply-cmvn[5.4.140~1-1ab3d]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 184 utterances, errors on 0
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -49.1205 over 732 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:146) Avg like per frame so far is -47.0363
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -45.683 over 653 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -47.0315 over 520 frames.
+LOG (transform-feats[5.4.140~1-1ab3d]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -74.7006 over 109866 frames.
+LOG (transform-feats[5.4.140~1-1ab3d]:main():transform-feats.cc:161) Applied transform to 184 utterances; 0 had errors.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -50.1612 over 513 frames.
+LOG (transform-feats[5.4.140~1-1ab3d]:main():transform-feats.cc:158) Overall average logdet is 2.7696 over 109866 frames.
+LOG (transform-feats[5.4.140~1-1ab3d]:main():transform-feats.cc:161) Applied transform to 184 utterances; 0 had errors.
+LOG (transform-feats[5.4.140~1-1ab3d]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -74.7006 over 109866 frames.
+LOG (transform-feats[5.4.140~1-1ab3d]:main():transform-feats.cc:161) Applied transform to 184 utterances; 0 had errors.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:140) Average like for this file is -46.7972 over 656 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:150) Done 184 files, 0 with no posteriors, 0 with no second features, 0 with other errors.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:155) Overall avg like per frame (Gaussian only) = -47.0414 over 109866 frames.
+LOG (gmm-acc-stats-twofeats[5.4.140~1-1ab3d]:main():gmm-acc-stats-twofeats.cc:163) Written accs.
+# Accounting: time=3 threads=1
+# Ended (code 0) at Wed Jun 20 18:05:29 CST 2018, elapsed time 3 seconds

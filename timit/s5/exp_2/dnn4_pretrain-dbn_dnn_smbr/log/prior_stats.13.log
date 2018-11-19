@@ -1,0 +1,13 @@
+# nnet-forward --use-gpu=no --feature-transform=exp_2/dnn4_pretrain-dbn_dnn_smbr/final.feature_transform exp_2/dnn4_pretrain-dbn_dnn_smbr/final.nnet "ark:cat data-deltas-tri1/train/split20/13/feats.scp | utils/shuffle_list.pl --srand 777 | head -n500 | copy-feats scp:- ark:- |" ark:- | compute-cmvn-stats --binary=false ark:- exp_2/dnn4_pretrain-dbn_dnn_smbr/13.prior_cmvn_stats 
+# Started at Fri Jun 22 19:16:46 CST 2018
+#
+compute-cmvn-stats --binary=false ark:- exp_2/dnn4_pretrain-dbn_dnn_smbr/13.prior_cmvn_stats 
+nnet-forward --use-gpu=no --feature-transform=exp_2/dnn4_pretrain-dbn_dnn_smbr/final.feature_transform exp_2/dnn4_pretrain-dbn_dnn_smbr/final.nnet 'ark:cat data-deltas-tri1/train/split20/13/feats.scp | utils/shuffle_list.pl --srand 777 | head -n500 | copy-feats scp:- ark:- |' ark:- 
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuId():cu-device.cc:123) Manually selected to compute on CPU.
+copy-feats scp:- ark:- 
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 184 feature matrices.
+LOG (nnet-forward[5.4.140~1-1ab3d]:main():nnet-forward.cc:192) Done 184 files in 2.55398min, (fps 732.406)
+LOG (compute-cmvn-stats[5.4.140~1-1ab3d]:main():compute-cmvn-stats.cc:168) Wrote global CMVN stats to exp_2/dnn4_pretrain-dbn_dnn_smbr/13.prior_cmvn_stats
+LOG (compute-cmvn-stats[5.4.140~1-1ab3d]:main():compute-cmvn-stats.cc:171) Done accumulating CMVN stats for 184 utterances; 0 had errors.
+# Accounting: time=154 threads=1
+# Ended (code 0) at Fri Jun 22 19:19:20 CST 2018, elapsed time 154 seconds

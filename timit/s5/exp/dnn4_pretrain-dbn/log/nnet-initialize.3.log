@@ -1,0 +1,4 @@
+nnet-initialize exp/dnn4_pretrain-dbn/3.rbm.proto exp/dnn4_pretrain-dbn/3.rbm.init 
+VLOG[1] (nnet-initialize[5.4.140~1-1ab3d]:Init():nnet-nnet.cc:314) <Rbm> <InputDim> 1024 <OutputDim> 1024 <VisibleType> bern <HiddenType> bern <ParamStddev> 0.1 <VisibleBiasCmvnFilename> exp/dnn4_pretrain-dbn/3.cmvn
+LOG (nnet-initialize[5.4.140~1-1ab3d]:InitData():nnet/nnet-rbm.h:159) Initializing from <VisibleBiasCmvnFilename> exp/dnn4_pretrain-dbn/3.cmvn
+LOG (nnet-initialize[5.4.140~1-1ab3d]:main():nnet-initialize.cc:63) Written initialized model to exp/dnn4_pretrain-dbn/3.rbm.init

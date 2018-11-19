@@ -1,0 +1,3 @@
+nnet-initialize exp_2/dnn4_pretrain-dbn/1.rbm.proto exp_2/dnn4_pretrain-dbn/1.rbm.init 
+VLOG[1] (nnet-initialize[5.4.140~1-1ab3d]:Init():nnet-nnet.cc:314) <Rbm> <InputDim> 429 <OutputDim> 1024 <VisibleType> gauss <HiddenType> bern <ParamStddev> 0.1
+LOG (nnet-initialize[5.4.140~1-1ab3d]:main():nnet-initialize.cc:63) Written initialized model to exp_2/dnn4_pretrain-dbn/1.rbm.init

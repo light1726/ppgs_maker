@@ -1,0 +1,132 @@
+mjrc-server10
+nnet-train-frmshuff --cross-validate=false --randomize=true --verbose=0 --minibatch-size=256 --randomizer-size=32768 --randomizer-seed=777 --learn-rate=0.008 --momentum=0 --l1-penalty=0 --l2-penalty=0 --feature-transform=exp/dnn4_pretrain-dbn_dnn/final.feature_transform 'ark:copy-feats scp:exp/dnn4_pretrain-dbn_dnn/train.scp ark:- |' 'ark:ali-to-pdf exp/tri3_ali/final.mdl "ark:gunzip -c exp/tri3_ali/ali.*.gz |" ark:- | ali-to-post ark:- ark:- |' exp/dnn4_pretrain-dbn_dnn/nnet/nnet_dbn_dnn_iter02_learnrate0.008_tr0.7891_cv1.1557 exp/dnn4_pretrain-dbn_dnn/nnet/nnet_dbn_dnn_iter03 
+WARNING (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuId():cu-device.cc:196) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:315) Selecting from 4 GPUs
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(0): GeForce GTX 1080	free:7833M, used:286M, total:8119M, free/total:0.964776
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(1): GeForce GTX 1080	free:7833M, used:286M, total:8119M, free/total:0.964776
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(2): GeForce GTX 1080	free:86M, used:8033M, total:8119M, free/total:0.010661
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(3): GeForce GTX 1080	free:242M, used:7877M, total:8119M, free/total:0.0298738
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:379) Trying to select device: 0 (automatically), mem_ratio: 0.964776
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:398) Success selecting device 0 free mem ratio: 0.964776
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:FinalizeActiveGpu():cu-device.cc:247) The active GPU is [0]: GeForce GTX 1080	free:7769M, used:350M, total:8119M, free/total:0.956894 version 6.1
+copy-feats scp:exp/dnn4_pretrain-dbn_dnn/train.scp ark:- 
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:Init():nnet-randomizer.cc:32) Seeding by srand with : 777
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:163) TRAINING STARTED
+ali-to-post ark:- ark:- 
+ali-to-pdf exp/tri3_ali/final.mdl 'ark:gunzip -c exp/tri3_ali/ali.*.gz |' ark:- 
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:354) ### After 0 frames,
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:355) 
+### FORWARD PROPAGATION BUFFER CONTENT :
+[0] output of <Input>  ( min -8.83514, max 10.8948, mean -0.00269925, stddev 0.988449, skewness 0.0169957, kurtosis 3.09629 ) 
+[1] output of <AffineTransform> ( min -50.0774, max 39.5696, mean -3.70269, stddev 5.3681, skewness 0.0828646, kurtosis 2.05214 ) 
+[2] output of <Sigmoid> ( min 1.78505e-22, max 1, mean 0.22682, stddev 0.347114, skewness 1.33684, kurtosis 0.151558 ) 
+[3] output of <AffineTransform> ( min -33.267, max 23.0165, mean -3.20876, stddev 3.33391, skewness -0.112745, kurtosis 2.67263 ) 
+[4] output of <Sigmoid> ( min 3.56712e-15, max 1, mean 0.175503, stddev 0.272108, skewness 1.79645, kurtosis 2.06411 ) 
+[5] output of <AffineTransform> ( min -19.3305, max 15.3259, mean -3.72045, stddev 2.85572, skewness 0.439302, kurtosis 1.83366 ) 
+[6] output of <Sigmoid> ( min 4.02613e-09, max 1, mean 0.123415, stddev 0.232267, skewness 2.44206, kurtosis 5.12179 ) 
+[7] output of <AffineTransform> ( min -26.1486, max 12.8287, mean -4.39728, stddev 2.58011, skewness 0.201945, kurtosis 1.96469 ) 
+[8] output of <Sigmoid> ( min 4.40371e-12, max 0.999997, mean 0.0759387, stddev 0.175305, skewness 3.49338, kurtosis 12.4085 ) 
+[9] output of <AffineTransform> ( min -11.9617, max 22.5809, mean 0.00795395, stddev 4.07392, skewness 0.84702, kurtosis 1.46764 ) 
+[10] output of <Softmax> ( min 3.80232e-15, max 0.999732, mean 0.0078125, stddev 0.0706867, skewness 11.2363, kurtosis 133.574 ) 
+### END FORWARD
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:357) 
+### BACKWARD PROPAGATION BUFFER CONTENT :
+[0] diff of <Input>  ( min -2.35634, max 1.90968, mean -0.000531296, stddev 0.0777581, skewness -0.11558, kurtosis 82.5731 ) 
+[1] diff-output of <AffineTransform> ( min -0.545889, max 0.383252, mean 3.62835e-05, stddev 0.00914051, skewness -0.20096, kurtosis 227.946 ) 
+[2] diff-output of <Sigmoid> ( min -2.18363, max 1.72937, mean 0.000214586, stddev 0.0850675, skewness 0.0286129, kurtosis 31.3941 ) 
+[3] diff-output of <AffineTransform> ( min -0.491425, max 0.377245, mean 2.44913e-05, stddev 0.00988748, skewness -0.196794, kurtosis 145.051 ) 
+[4] diff-output of <Sigmoid> ( min -2.41154, max 1.75876, mean 0.000113047, stddev 0.0822146, skewness -0.0717345, kurtosis 30.7648 ) 
+[5] diff-output of <AffineTransform> ( min -0.501838, max 0.361447, mean 1.30762e-05, stddev 0.0100574, skewness -0.560037, kurtosis 154.903 ) 
+[6] diff-output of <Sigmoid> ( min -2.18386, max 1.72823, mean -0.00107553, stddev 0.0885029, skewness -0.25285, kurtosis 26.9157 ) 
+[7] diff-output of <AffineTransform> ( min -0.518347, max 0.457303, mean 8.46113e-05, stddev 0.0142535, skewness 0.103037, kurtosis 113.517 ) 
+[8] diff-output of <Sigmoid> ( min -3.43817, max 2.09412, mean 0.00153288, stddev 0.161544, skewness -0.197401, kurtosis 11.653 ) 
+[9] diff-output of <AffineTransform> ( min -0.99996, max 0.992721, mean 4.15997e-11, stddev 0.0597568, skewness -4.79587, kurtosis 174.203 ) 
+[10] diff-output of <Softmax> ( min -0.99996, max 0.992721, mean 4.15997e-11, stddev 0.0597568, skewness -4.79587, kurtosis 174.203 ) 
+### END BACKWARD
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:358) 
+### GRADIENT STATS :
+Component 1 : <AffineTransform>, 
+  linearity_grad ( min -2.24971, max 1.57128, mean -0.000693295, stddev 0.133567, skewness -0.000449726, kurtosis 4.39243 ) , lr-coef 1, max-norm 0
+  bias_grad ( min -0.583952, max 0.66189, mean 0.00928858, stddev 0.137636, skewness 0.306076, kurtosis 1.70486 ) , lr-coef 1
+Component 2 : <Sigmoid>, 
+Component 3 : <AffineTransform>, 
+  linearity_grad ( min -0.773416, max 0.829063, mean 0.00220431, stddev 0.0635075, skewness 0.309025, kurtosis 5.66718 ) , lr-coef 1, max-norm 0
+  bias_grad ( min -0.688321, max 0.649785, mean 0.00626976, stddev 0.151794, skewness 0.215026, kurtosis 1.54998 ) , lr-coef 1
+Component 4 : <Sigmoid>, 
+Component 5 : <AffineTransform>, 
+  linearity_grad ( min -0.796274, max 0.825087, mean 0.00103587, stddev 0.0522668, skewness 0.200588, kurtosis 11.238 ) , lr-coef 1, max-norm 0
+  bias_grad ( min -0.900297, max 0.856992, mean 0.0033475, stddev 0.166491, skewness 0.149996, kurtosis 3.98821 ) , lr-coef 1
+Component 6 : <Sigmoid>, 
+Component 7 : <AffineTransform>, 
+  linearity_grad ( min -1.33088, max 1.36943, mean 0.00258638, stddev 0.0627769, skewness 0.359887, kurtosis 15.6743 ) , lr-coef 1, max-norm 0
+  bias_grad ( min -1.51191, max 1.45308, mean 0.0216605, stddev 0.255088, skewness 0.22469, kurtosis 3.83122 ) , lr-coef 1
+Component 8 : <Sigmoid>, 
+Component 9 : <AffineTransform>, 
+  linearity_grad ( min -6.56111, max 3.10857, mean -2.43952e-09, stddev 0.196363, skewness -2.64607, kurtosis 76.7158 ) , lr-coef 1, max-norm 0
+  bias_grad ( min -6.70464, max 2.56379, mean 4.77303e-09, stddev 1.12055, skewness -1.54253, kurtosis 8.74481 ) , lr-coef 1
+Component 10 : <Softmax>, 
+### END GRADIENT
+LOG (ali-to-pdf[5.4.140~1-1ab3d]:main():ali-to-pdf.cc:68) Converted 3696 alignments to pdf sequences.
+LOG (ali-to-post[5.4.140~1-1ab3d]:main():ali-to-post.cc:73) Converted 3696 alignments.
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:Eval():nnet-loss.cc:148) ProgressLoss[last 5h of 5h]: 0.696684 (Xent), fps=105002, elapsed 0.00476h
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 3328 feature matrices.
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:384) ### After 2024448 frames,
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:385) 
+### FORWARD PROPAGATION BUFFER CONTENT :
+[0] output of <Input>  ( min -10.6721, max 10.7975, mean 0.00142695, stddev 0.978169, skewness 0.0453905, kurtosis 4.75326 ) 
+[1] output of <AffineTransform> ( min -60.5291, max 55.9413, mean -3.77301, stddev 5.79119, skewness 0.0842313, kurtosis 2.33783 ) 
+[2] output of <Sigmoid> ( min 5.15897e-27, max 1, mean 0.235367, stddev 0.356344, skewness 1.27592, kurtosis -0.0433154 ) 
+[3] output of <AffineTransform> ( min -33.5556, max 25.3088, mean -3.46624, stddev 3.67247, skewness -0.162579, kurtosis 2.43756 ) 
+[4] output of <Sigmoid> ( min 2.6728e-15, max 1, mean 0.174858, stddev 0.279472, skewness 1.78892, kurtosis 1.95947 ) 
+[5] output of <AffineTransform> ( min -23.0156, max 15.1373, mean -3.93137, stddev 3.01219, skewness 0.382052, kurtosis 1.75208 ) 
+[6] output of <Sigmoid> ( min 1.01032e-10, max 1, mean 0.119976, stddev 0.233514, skewness 2.47806, kurtosis 5.26256 ) 
+[7] output of <AffineTransform> ( min -22.4867, max 13.3117, mean -4.54346, stddev 2.67317, skewness 0.203474, kurtosis 1.77773 ) 
+[8] output of <Sigmoid> ( min 1.71455e-10, max 0.999998, mean 0.0748703, stddev 0.17691, skewness 3.49125, kurtosis 12.2956 ) 
+[9] output of <AffineTransform> ( min -12.2691, max 24.0823, mean 0.00879596, stddev 4.34743, skewness 0.864869, kurtosis 1.49616 ) 
+[10] output of <Softmax> ( min 1.52245e-15, max 0.999934, mean 0.0078125, stddev 0.0744181, skewness 11.2567, kurtosis 131.449 ) 
+### END FORWARD
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:387) 
+### BACKWARD PROPAGATION BUFFER CONTENT :
+[0] diff of <Input>  ( min -1.34591, max 1.13092, mean 0.000378995, stddev 0.0432357, skewness -0.0139253, kurtosis 53.5265 ) 
+[1] diff-output of <AffineTransform> ( min -0.142817, max 0.176381, mean -3.30127e-05, stddev 0.00500943, skewness -0.114583, kurtosis 86.6332 ) 
+[2] diff-output of <Sigmoid> ( min -0.702233, max 0.724236, mean -0.000395526, stddev 0.0493826, skewness -0.115485, kurtosis 15.1445 ) 
+[3] diff-output of <AffineTransform> ( min -0.154305, max 0.163404, mean -6.42731e-05, stddev 0.00568857, skewness -0.698521, kurtosis 73.5895 ) 
+[4] diff-output of <Sigmoid> ( min -0.86124, max 1.39143, mean -0.000315201, stddev 0.0501941, skewness 0.0126291, kurtosis 22.5826 ) 
+[5] diff-output of <AffineTransform> ( min -0.160673, max 0.355748, mean -4.5977e-05, stddev 0.00626724, skewness 0.991462, kurtosis 129.511 ) 
+[6] diff-output of <Sigmoid> ( min -0.963284, max 1.55024, mean -6.87992e-05, stddev 0.0590777, skewness -0.139773, kurtosis 20.6622 ) 
+[7] diff-output of <AffineTransform> ( min -0.274642, max 0.324143, mean -5.61138e-05, stddev 0.00965848, skewness 0.599423, kurtosis 117.61 ) 
+[8] diff-output of <Sigmoid> ( min -1.51791, max 2.16696, mean -0.00052741, stddev 0.117413, skewness -0.116446, kurtosis 14.983 ) 
+[9] diff-output of <AffineTransform> ( min -0.999992, max 0.945182, mean 4.3926e-11, stddev 0.0404072, skewness -6.31688, kurtosis 281.151 ) 
+[10] diff-output of <Softmax> ( min -0.999992, max 0.945182, mean 4.3926e-11, stddev 0.0404072, skewness -6.31688, kurtosis 281.151 ) 
+### END BACKWARD
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:388) 
+### GRADIENT STATS :
+Component 1 : <AffineTransform>, 
+  linearity_grad ( min -0.748738, max 0.974618, mean 0.000165359, stddev 0.0774768, skewness 0.104448, kurtosis 2.96724 ) , lr-coef 1, max-norm 0
+  bias_grad ( min -0.339812, max 0.464086, mean -0.00845126, stddev 0.0832594, skewness 0.121498, kurtosis 1.73437 ) , lr-coef 1
+Component 2 : <Sigmoid>, 
+Component 3 : <AffineTransform>, 
+  linearity_grad ( min -0.467271, max 0.443329, mean -0.00369647, stddev 0.041005, skewness -0.149086, kurtosis 4.07588 ) , lr-coef 1, max-norm 0
+  bias_grad ( min -0.44983, max 0.395487, mean -0.0164539, stddev 0.0962541, skewness -0.000893866, kurtosis 1.41437 ) , lr-coef 1
+Component 4 : <Sigmoid>, 
+Component 5 : <AffineTransform>, 
+  linearity_grad ( min -0.440332, max 0.891966, mean -0.00205006, stddev 0.0355717, skewness 0.61418, kurtosis 15.5476 ) , lr-coef 1, max-norm 0
+  bias_grad ( min -0.386426, max 0.978709, mean -0.0117701, stddev 0.110535, skewness 0.726707, kurtosis 6.76311 ) , lr-coef 1
+Component 6 : <Sigmoid>, 
+Component 7 : <AffineTransform>, 
+  linearity_grad ( min -0.653383, max 1.15193, mean -0.00181048, stddev 0.0437469, skewness 0.336516, kurtosis 12.7693 ) , lr-coef 1, max-norm 0
+  bias_grad ( min -0.697775, max 1.04921, mean -0.0143651, stddev 0.167822, skewness 0.340558, kurtosis 2.66695 ) , lr-coef 1
+Component 8 : <Sigmoid>, 
+Component 9 : <AffineTransform>, 
+  linearity_grad ( min -2.99816, max 2.38012, mean -7.15711e-10, stddev 0.135141, skewness -1.79782, kurtosis 41.0112 ) , lr-coef 1, max-norm 0
+  bias_grad ( min -2.73493, max 2.19751, mean 9.1386e-09, stddev 0.737564, skewness -0.345091, kurtosis 1.9906 ) , lr-coef 1
+Component 10 : <Softmax>, 
+### END GRADIENT
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:395) Done 3328 files, 0 with no tgt_mats, 0 with other errors. [TRAINING, RANDOMIZED, 0.320634 min, processing 105231 frames per sec; i/o time 12.4431%]
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:405) PER-CLASS PERFORMANCE:
+@@@ Frames per-class: [ 90822 11511 12163 9067 10974 6568 19914 13708 8447 9755 29398 5547 8952 12180 26184 11053 9289 5700 20136 15142 26306 4915 19526 28637 25923 12140 6391 13270 17821 27613 34857 12416 13603 7869 9427 10471 60435 8994 13454 12413 4449 15529 11166 19405 8956 7501 26610 2815 5298 51291 111231 18177 10113 12129 16707 10864 15096 8263 7994 12492 19429 15077 23325 17457 42026 14096 6037 11622 10326 11578 10163 6924 17961 16904 25947 13667 11136 14228 10782 8652 17803 27315 20489 22700 18571 7201 15057 15691 15999 35475 6809 8686 15502 8086 21751 4734 7221 17302 20055 18261 9127 11502 14975 23422 34815 11599 11184 12147 12886 10193 12216 12908 6203 9150 12243 5476 10968 12579 6869 7031 5449 4684 15830 4757 7000 7052 5947 15114 ]
+@@@ Loss per-class: [ 0.293597 1.0627 0.965036 1.35431 0.471434 1.30586 1.43467 0.936279 0.520253 0.667031 0.713335 1.03448 1.02246 0.576463 0.954846 0.829605 1.37463 1.62282 0.54773 0.745973 0.295123 0.83267 0.459541 1.0138 1.24318 0.63562 0.64303 0.371436 0.740269 0.365643 0.473852 0.538981 0.735611 0.728447 0.429947 0.632877 0.319392 0.401716 0.503141 1.10923 1.67973 0.589343 0.611545 0.807459 0.682845 0.722663 0.489428 1.21092 0.344726 0.669005 0.265506 0.809991 0.718636 0.894445 0.64519 0.849144 1.00165 0.665272 1.14888 0.958681 0.688238 0.750044 0.520997 0.445521 0.434792 1.3364 1.21858 0.334931 0.99738 0.90464 1.34797 1.54171 0.454077 0.275802 0.925525 1.18358 0.509316 0.68254 0.456334 1.0626 0.670936 0.549448 0.746263 0.667361 0.445652 1.00318 0.64312 0.967617 0.66079 0.950452 1.1038 0.595172 0.252673 1.00866 0.743735 0.668522 0.873482 0.717863 0.741849 1.47952 0.634144 0.636026 0.693763 0.510922 0.589216 0.910875 0.583344 1.02822 0.925511 0.975919 0.799453 0.850942 0.466698 0.761861 0.532082 0.876445 0.789565 0.72565 0.810139 0.521276 0.743715 1.20609 1.46604 0.72112 0.86323 0.823849 0.672771 0.849676 ]
+@@@ Frame-accuracy per-class: [ 90.5128 63.5973 67.1846 56.6529 86.4003 56.7101 55.7333 67.4545 82.5215 77.6383 76.9699 64.6057 68.7517 83.3792 67.9753 74.9989 53.8457 56.3108 81.7073 75.0338 90.8597 71.2033 86.1906 66.1964 59.2937 79.1071 76.5548 87.8565 75.8185 88.6776 84.5987 82.8736 77.3698 78.5565 85.9719 78.5561 88.9957 87.22 83.801 63.6082 50.3652 81.8249 82.0221 74.0203 77.2512 77.2379 81.9526 63.328 88.4401 76.4552 91.8328 73.7285 73.0805 71.3714 80.6165 70.3576 66.9493 76.0695 65.395 67.7527 76.6978 74.7405 83.2265 86.2609 84.7132 54.659 62.8571 89.5246 65.7338 69.7932 55.3058 51.4117 84.8648 91.0823 60.95 60.5305 83.3386 79.9522 85.342 63.6695 79.6416 81.4702 75.6241 78.0159 85.5289 63.9867 80.4715 63.869 78.4087 67.6495 63.5142 80.7114 92.1593 67.5076 74.9879 76.3544 72.0626 77.6246 75.4855 49.6509 80.3287 79.1306 77.166 83.1252 80.2085 71.5031 81.5504 68.8043 68.1256 66.6896 74.5549 70.9687 84.7747 74.291 82.4601 74.1167 75.9539 77.7773 73.0039 83.8086 75.695 55.7584 52.2093 75.691 71.4378 73.6193 77.6461 72.9763 ]
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:406) AvgLoss: 0.692445 (Xent), [AvgXent: 0.692445, AvgTargetEnt: 0]
+progress: [0.696684 ]
+FRAME_ACCURACY >> 77.2071% <<

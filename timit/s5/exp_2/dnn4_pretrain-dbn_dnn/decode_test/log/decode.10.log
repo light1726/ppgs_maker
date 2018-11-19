@@ -1,0 +1,33 @@
+# nnet-forward --no-softmax=true --prior-scale=1.0 --feature-transform=exp_2/dnn4_pretrain-dbn_dnn/final.feature_transform --class-frame-counts=exp_2/dnn4_pretrain-dbn_dnn/ali_train_pdf.counts --use-gpu=no exp_2/dnn4_pretrain-dbn_dnn/final.nnet "ark,s,cs:copy-feats scp:data-deltas-tri1/test/split20/10/feats.scp ark:- |" ark:- | latgen-faster-mapped --min-active=200 --max-active=7000 --max-mem=50000000 --beam=13.0 --lattice-beam=8.0 --acoustic-scale=0.2 --allow-partial=true --word-symbol-table=exp/tri1/graph/words.txt exp_2/dnn4_pretrain-dbn_dnn/final.mdl exp/tri1/graph/HCLG.fst ark:- "ark:|gzip -c > exp_2/dnn4_pretrain-dbn_dnn/decode_test/lat.10.gz" 
+# Started at Fri Jun 22 18:27:57 CST 2018
+#
+latgen-faster-mapped --min-active=200 --max-active=7000 --max-mem=50000000 --beam=13.0 --lattice-beam=8.0 --acoustic-scale=0.2 --allow-partial=true --word-symbol-table=exp/tri1/graph/words.txt exp_2/dnn4_pretrain-dbn_dnn/final.mdl exp/tri1/graph/HCLG.fst ark:- 'ark:|gzip -c > exp_2/dnn4_pretrain-dbn_dnn/decode_test/lat.10.gz' 
+nnet-forward --no-softmax=true --prior-scale=1.0 --feature-transform=exp_2/dnn4_pretrain-dbn_dnn/final.feature_transform --class-frame-counts=exp_2/dnn4_pretrain-dbn_dnn/ali_train_pdf.counts --use-gpu=no exp_2/dnn4_pretrain-dbn_dnn/final.nnet 'ark,s,cs:copy-feats scp:data-deltas-tri1/test/split20/10/feats.scp ark:- |' ark:- 
+LOG (nnet-forward[5.4.140~1-1ab3d]:SelectGpuId():cu-device.cc:123) Manually selected to compute on CPU.
+LOG (nnet-forward[5.4.140~1-1ab3d]:main():nnet-forward.cc:93) Removing <Softmax> from the nnet exp_2/dnn4_pretrain-dbn_dnn/final.nnet
+LOG (nnet-forward[5.4.140~1-1ab3d]:PdfPrior():nnet-pdf-prior.cc:34) Computing pdf-priors from : exp_2/dnn4_pretrain-dbn_dnn/ali_train_pdf.counts
+LOG (nnet-forward[5.4.140~1-1ab3d]:PdfPrior():nnet-pdf-prior.cc:64) Floored 0 pdf-priors (hard-set to 1.84467e+19, which disables DNN output when decoding)
+copy-feats scp:data-deltas-tri1/test/split20/10/feats.scp ark:- 
+mgrt0_si1450 sil m iy cl t s sil sil dh er iy ey sh en cl p r aa s eh s ix n hh ow v m iy vcl d hh eh z r iy s iy vcl d ix cl k s cl d ih n f uw v ix n eh s cl t ix vcl g ey sh en sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mgrt0_si1450 is 3.75423 over 1238 frames.
+mgrt0_si2080 sil hh iy w uh vcl n aa cl k eh r iy vcl b r iy f cl k ey s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mgrt0_si2080 is 3.7348 over 458 frames.
+mgrt0_si820 sil b ay dh ae n cl t sil w ax n f iy l z eh cl m ae vcl b eh dx ix m f ao r s ix z sil ay er zh vcl jh eh n r l ax hh ae z ix l ae cl t er cl k el f ao r s ix s sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mgrt0_si820 is 3.49491 over 1220 frames.
+mgrt0_sx10 sil ax hh ay y er vcl g r ey vcl jh hh ay er dx er l ow ao r dh ax n ae n s iy z sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mgrt0_sx10 is 3.625 over 598 frames.
+mgrt0_sx100 sil p r ah vcl jh eh vcl d ix v eh l m ah n hh w ax s cl p er s iy ng cl t uw s l iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mgrt0_sx100 is 3.82607 over 982 frames.
+mgrt0_sx190 sil s er v z ax cl k ow s l ao hh ae f sh r ay ae dh iy l eh l sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mgrt0_sx190 is 3.57053 over 574 frames.
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 8 feature matrices.
+mgrt0_sx280 sil dh iy l ey s ix s epi w ah z ix m er aa vcl jh sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mgrt0_sx280 is 3.752 over 392 frames.
+LOG (nnet-forward[5.4.140~1-1ab3d]:main():nnet-forward.cc:192) Done 8 files in 0.189468min, (fps 539.23)
+mgrt0_sx370 sil dh ax m ow l z cl p r aa l ax m vcl g r ow z epi m ao r ah n ow oy ey ng iy cl ch vcl d ey iy sil 
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:DecodeUtteranceLatticeFaster():decoder-wrappers.cc:286) Log-like per frame for utterance mgrt0_sx370 is 3.55515 over 668 frames.
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:main():latgen-faster-mapped.cc:164) Time taken 10.0783s: real-time factor assuming 100 frames/sec is 0.164409
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:main():latgen-faster-mapped.cc:167) Done 8 utterances, failed for 0
+LOG (latgen-faster-mapped[5.4.140~1-1ab3d]:main():latgen-faster-mapped.cc:169) Overall log-likelihood per frame is 3.66103 over 6130 frames.
+# Accounting: time=12 threads=1
+# Ended (code 0) at Fri Jun 22 18:28:09 CST 2018, elapsed time 12 seconds

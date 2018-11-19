@@ -1,0 +1,57 @@
+mjrc-server10
+nnet-train-frmshuff --cross-validate=true --randomize=false --verbose=0 --minibatch-size=256 --randomizer-size=32768 --randomizer-seed=777 --feature-transform=exp/dnn4_pretrain-dbn_dnn/final.feature_transform 'ark:copy-feats scp:exp/dnn4_pretrain-dbn_dnn/cv.scp ark:- |' 'ark:ali-to-pdf exp/tri3_ali/final.mdl "ark:gunzip -c exp/tri3_ali/ali.*.gz |" ark:- | ali-to-post ark:- ark:- |' exp/dnn4_pretrain-dbn_dnn/nnet_dbn_dnn.init 
+WARNING (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuId():cu-device.cc:196) Not in compute-exclusive mode.  Suggestion: use 'nvidia-smi -c 3' to set compute exclusive mode
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:315) Selecting from 4 GPUs
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(0): GeForce GTX 1080	free:7833M, used:286M, total:8119M, free/total:0.964776
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(1): GeForce GTX 1080	free:7833M, used:286M, total:8119M, free/total:0.964776
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(2): GeForce GTX 1080	free:86M, used:8033M, total:8119M, free/total:0.010661
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:330) cudaSetDevice(3): GeForce GTX 1080	free:242M, used:7877M, total:8119M, free/total:0.0298738
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:379) Trying to select device: 0 (automatically), mem_ratio: 0.964776
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:SelectGpuIdAuto():cu-device.cc:398) Success selecting device 0 free mem ratio: 0.964776
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:FinalizeActiveGpu():cu-device.cc:247) The active GPU is [0]: GeForce GTX 1080	free:7769M, used:350M, total:8119M, free/total:0.956894 version 6.1
+copy-feats scp:exp/dnn4_pretrain-dbn_dnn/cv.scp ark:- 
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:Init():nnet-randomizer.cc:32) Seeding by srand with : 777
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:163) CROSS-VALIDATION STARTED
+ali-to-post ark:- ark:- 
+ali-to-pdf exp/tri3_ali/final.mdl 'ark:gunzip -c exp/tri3_ali/ali.*.gz |' ark:- 
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:354) ### After 0 frames,
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:355) 
+### FORWARD PROPAGATION BUFFER CONTENT :
+[0] output of <Input>  ( min -6.95974, max 7.47381, mean -0.0199296, stddev 0.996252, skewness -4.64058e-05, kurtosis 3.61874 ) 
+[1] output of <AffineTransform> ( min -26.5224, max 17.8992, mean -3.5331, stddev 2.54451, skewness 0.108245, kurtosis 2.29559 ) 
+[2] output of <Sigmoid> ( min 3.03016e-12, max 1, mean 0.119688, stddev 0.220171, skewness 2.49907, kurtosis 5.52769 ) 
+[3] output of <AffineTransform> ( min -21.4786, max 12.103, mean -2.76757, stddev 2.029, skewness 0.0978089, kurtosis 2.99081 ) 
+[4] output of <Sigmoid> ( min 4.69876e-10, max 0.999994, mean 0.137051, stddev 0.206269, skewness 2.45375, kurtosis 5.60742 ) 
+[5] output of <AffineTransform> ( min -17.0602, max 13.221, mean -3.2944, stddev 2.03401, skewness 0.749819, kurtosis 2.25806 ) 
+[6] output of <Sigmoid> ( min 3.898e-08, max 0.999998, mean 0.10799, stddev 0.200754, skewness 2.83066, kurtosis 7.60633 ) 
+[7] output of <AffineTransform> ( min -24.2034, max 12.0801, mean -2.82156, stddev 1.82446, skewness 0.471902, kurtosis 4.50473 ) 
+[8] output of <Sigmoid> ( min 3.08042e-11, max 0.999994, mean 0.121584, stddev 0.195036, skewness 2.77213, kurtosis 7.41392 ) 
+[9] output of <AffineTransform> ( min -5.597, max 6.00916, mean 0.0206904, stddev 1.1026, skewness 0.0895238, kurtosis 0.556967 ) 
+[10] output of <Softmax> ( min 7.47861e-06, max 0.5603, mean 0.0078125, stddev 0.0137502, skewness 10.5118, kurtosis 213.777 ) 
+### END FORWARD
+LOG (ali-to-pdf[5.4.140~1-1ab3d]:main():ali-to-pdf.cc:68) Converted 3696 alignments to pdf sequences.
+LOG (copy-feats[5.4.140~1-1ab3d]:main():copy-feats.cc:143) Copied 368 feature matrices.
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:384) ### After 223232 frames,
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:385) 
+### FORWARD PROPAGATION BUFFER CONTENT :
+[0] output of <Input>  ( min -9.20535, max 10.6044, mean 0.0308765, stddev 1.06127, skewness -0.049373, kurtosis 5.11183 ) 
+[1] output of <AffineTransform> ( min -30.9224, max 22.3887, mean -3.52742, stddev 2.70221, skewness 0.0291232, kurtosis 3.02927 ) 
+[2] output of <Sigmoid> ( min 3.72022e-14, max 1, mean 0.127275, stddev 0.2288, skewness 2.35709, kurtosis 4.7457 ) 
+[3] output of <AffineTransform> ( min -24.9461, max 13.6723, mean -2.76429, stddev 2.13653, skewness 0.0574153, kurtosis 3.36018 ) 
+[4] output of <Sigmoid> ( min 1.46569e-11, max 0.999999, mean 0.143683, stddev 0.215979, skewness 2.32491, kurtosis 4.83625 ) 
+[5] output of <AffineTransform> ( min -17.0877, max 15.0375, mean -3.25834, stddev 2.1264, skewness 0.688834, kurtosis 2.5089 ) 
+[6] output of <Sigmoid> ( min 3.79249e-08, max 1, mean 0.114365, stddev 0.207832, skewness 2.69282, kurtosis 6.75748 ) 
+[7] output of <AffineTransform> ( min -26.4444, max 13.1005, mean -2.81461, stddev 1.91932, skewness 0.37768, kurtosis 5.05736 ) 
+[8] output of <Sigmoid> ( min 3.27606e-12, max 0.999998, mean 0.126987, stddev 0.203083, skewness 2.64099, kurtosis 6.54399 ) 
+[9] output of <AffineTransform> ( min -5.13232, max 5.69603, mean 0.0104, stddev 1.1459, skewness 0.124318, kurtosis 0.722164 ) 
+[10] output of <Softmax> ( min 1.16527e-05, max 0.445512, mean 0.0078125, stddev 0.0146073, skewness 9.25337, kurtosis 144.252 ) 
+### END FORWARD
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:395) Done 368 files, 0 with no tgt_mats, 0 with other errors. [CROSS-VALIDATION, NOT-RANDOMIZED, 0.0955775 min, processing 38926.9 frames per sec; i/o time 62.7423%]
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:405) PER-CLASS PERFORMANCE:
+@@@ Frames per-class: [ 8370 1246 1198 950 1402 456 2236 1957 803 1197 3453 569 962 1269 2487 1278 1147 568 2257 1685 2884 568 2098 2900 2884 1314 653 1652 2245 3252 3794 1157 1715 897 1163 1299 6611 932 1447 1247 399 1678 1332 2081 1134 723 2689 269 734 4468 12049 1946 1224 1276 2114 1425 1592 932 926 1286 2217 1631 2540 1896 4953 1535 369 1469 1225 1388 1168 782 2327 2215 2891 1344 1311 1262 1192 868 1962 3234 2212 2754 2220 869 1895 1735 2060 4055 755 849 1538 922 2365 588 766 1848 2059 1909 675 1476 1617 2575 3964 1319 1376 1610 1387 1096 1286 1638 776 876 1513 555 1095 1442 674 808 559 617 1752 562 880 857 782 1808 ]
+@@@ Loss per-class: [ 4.77381 6.54295 5.44014 4.47056 5.10592 5.02626 5.08619 3.45847 5.13357 5.96117 6.88683 2.86591 5.53865 5.54233 4.83776 5.15061 5.5471 6.46809 5.69914 5.6018 6.5479 6.47981 5.59615 4.89483 5.18464 5.95794 3.10363 6.23195 6.62256 4.85594 5.17576 5.55585 5.71449 4.4318 5.162 5.40197 5.52265 4.69814 4.31205 5.77775 7.14696 5.47395 6.70612 5.83651 5.71531 4.9648 4.85692 6.23238 5.50657 4.86644 5.55709 6.1551 5.21848 5.85693 4.61973 5.96233 5.68585 4.79261 5.06827 5.13849 5.43618 4.44923 6.21063 5.23145 5.67396 5.70517 5.15602 5.02244 4.48491 5.45695 5.94988 5.86627 5.34045 3.604 5.40763 5.14009 2.74992 4.29675 6.56068 6.10445 5.6147 6.01191 5.2494 5.1987 5.31388 5.63566 5.44301 5.20835 5.46866 6.53376 7.33477 5.26586 5.45831 5.94965 6.69835 7.76768 5.95555 4.18765 4.55639 6.42588 4.78455 4.99801 6.98693 5.89846 6.99676 5.44381 5.72892 5.54442 5.46997 4.50221 5.3251 5.27409 5.17713 7.32849 6.75276 7.07123 6.04427 4.57199 5.65716 6.77241 6.54958 4.77854 4.9189 4.84954 6.50977 4.63139 6.09586 6.01172 ]
+@@@ Frame-accuracy per-class: [ 0.382295 0 0.333751 1.47291 0 0 0.402414 30.4981 0 0 0 24.583 0 0 0.321608 0 0 0 0 0 0 0 0 0.206861 0.0693361 0 16.9855 0 0 0.0307456 0.0263539 0 0 0.445682 0 0 0 0 0.8981 0.0801603 0 0 0 0 0.264434 0.414651 0.0371816 0 0 0.693745 0 0 0 0 0 0 0 0.214477 0.107933 0 0 0.0612933 0 0.158186 0 0 0.270636 0.0680504 0.734394 0 0 0 0 9.25299 0 0 49.4091 3.56436 0.67086 0 0 0 0.135593 0 0 0 0 0.172861 0 0 0 0 0 0 0 0 0 0.595077 0.0971109 0 0 0.0677277 0 0 0 0 0 0 0 1.27679 0.388651 0 0 0 0 0 0 0.207972 0 0 0 0.161943 0.456491 0.177778 0 1.74927 0 0 ]
+LOG (nnet-train-frmshuff[5.4.140~1-1ab3d]:main():nnet-train-frmshuff.cc:406) AvgLoss: 5.48451 (Xent), [AvgXent: 5.48451, AvgTargetEnt: 0]
+progress: []
+FRAME_ACCURACY >> 0.883386% <<
+WARNING (nnet-train-frmshuff[5.4.140~1-1ab3d]:Close():kaldi-io.cc:515) Pipe ali-to-pdf exp/tri3_ali/final.mdl "ark:gunzip -c exp/tri3_ali/ali.*.gz |" ark:- | ali-to-post ark:- ark:- | had nonzero return status 36096
