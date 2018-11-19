@@ -16,10 +16,12 @@ make ppgs kaldi implentation
 6. save PPGs to python dict: bash ./local/make_all_ppgs.sh.
 ## Before running
 1. prepare data;
-2. modify PPGs dimension by modifing the numLeavesTri1 and numGaussTri1 in ppgs_maker/timit/s5/run.sh;
+2. modify PPGs dimension by modifing the numLeavesTri1 and numGaussTri1 in ppgs_maker/timit/s5/run.sh, use gmm-info or tree-info tools to check the model's (\*.mdl) number of tree leaves.
 3. modify variables relates to path;
 4. modify the network structure by：
 
-(1) modifing --nn-depth and --hid-dim in ppgs_maker/timit/s5/local/nnet/run_dnn_deltas.sh, line 58;
+&emsp; &emsp; (1) modifing --nn-depth and --hid-dim in ppgs_maker/timit/s5/local/nnet/run_dnn_deltas.sh, line 58;
 
-(2) modifing the number before .dbn to the number of layers of the DNN.
+&emsp; &emsp; (2) modifing the number before .dbn to the number of layers of the DNN;
+
+5. run inference using nnet-forward, parameters needed: feature transform, trained nnet model, gpu option.
