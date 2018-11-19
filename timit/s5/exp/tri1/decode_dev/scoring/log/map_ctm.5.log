@@ -1,5 +1,0 @@
-# mkdir exp/tri1/decode_dev/score_5 ; cat exp/tri1/decode_dev/scoring/5.ctm | utils/int2sym.pl -f 5 exp/tri1/graph/words.txt | local/timit_norm_trans.pl -i - -m conf/phones.60-48-39.map -from 48 -to 39 > exp/tri1/decode_dev/scoring/5.ctm_39phn 
-# Started at Mon Jun 18 22:07:35 CST 2018
-#
-# Accounting: time=0 threads=1
-# Ended (code 0) at Mon Jun 18 22:07:35 CST 2018, elapsed time 0 seconds
