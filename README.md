@@ -19,5 +19,7 @@ make ppgs kaldi implentation
 2. modify PPGs dimension by modifing the numLeavesTri1 and numGaussTri1 in ppgs_maker/timit/s5/run.sh;
 3. modify variables relates to path;
 4. modify the network structure by：
+
 (1) modifing --nn-depth and --hid-dim in ppgs_maker/timit/s5/local/nnet/run_dnn_deltas.sh, line 58;
+
 (2) modifing the number before .dbn to the number of layers of the DNN.
